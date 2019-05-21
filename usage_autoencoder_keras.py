@@ -2,7 +2,8 @@
 
 
 import numpy as np
-from tensorflow.keras.datasets import fashion_mnist
+from keras.datasets import fashion_mnist
+#from tensorflow.keras.datasets import fashion_mnist
 from autoencoder_keras import Autoencoder
 import matplotlib.pyplot as plt
 

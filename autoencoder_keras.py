@@ -1,8 +1,8 @@
 # Source: https://rubikscode.net/2018/11/26/3-ways-to-implement-autoencoders-with-tensorflow-and-python/
 
 
-from tensorflow.keras.layers import Dense, Input
-from tensorflow.keras.models import Model
+from keras.layers import Dense, Input
+from keras.models import Model
 
 
 class Autoencoder(object):
