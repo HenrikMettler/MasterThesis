@@ -61,9 +61,19 @@ def training(trainer = 0, dm_network = 0, gamma = 0):
     return updated_trainer
 
 
+# Used to initialize weights for policy and value output layers
+def normalized_columns_initializer(std=1.0):
+    def _initializer(shape, dtype=None, partition_info=None):
+        out = np.random.randn(*shape).astype(np.float32)
+        out *= std / np.sqrt(np.square(out).sum(axis=0, keepdims=True))
+        return tf.constant(out)
+
+    return _initializer
+
+
 class Create_Args():
     # class for the implementation of an args data structure
-    def __init__(self,nb_episodes, batch_size, consecutive_frames, training_interval, n_threads, gamma, lr, gather_stats=0, render=0, env='empty'):
+    def __init__(self,nb_episodes, batch_size, consecutive_frames, training_interval, n_threads, gamma, lr, optimizer, n_timeSteps, gather_stats=0, render=0, env='empty'):
         self.nb_episode = nb_episodes
         self.batch_size = batch_size
         self.consecutive_frames = consecutive_frames
@@ -71,8 +81,9 @@ class Create_Args():
         self.n_threads = n_threads
         self.gamma = gamma
         self.lr = lr
+        self.optimizer = optimizer
         self.gather_stats = gather_stats
         self.render = render
         self.env = env
-
+        self.n_timeSteps = n_timeSteps
 
