@@ -37,23 +37,23 @@ def create_imageList():
             currentImage_asArray = np.asarray(currentImage)
             imageList_asArray.append(currentImage_asArray)
 
-            currentImage_data = currentImage.load()
-            currentImage_object = ImageObject(currentImage_data, label)
-            imageList.append(currentImage_object)
+            # currentImage_data = currentImage.load()
+            # currentImage_object = ImageObject(currentImage_data, label)
+            # imageList.append(currentImage_object)
 
-    return imageList, imageList_asArray
+    return imageList_asArray
 
 
-def create_trainSet_testSet(imageList_asArray, testFraction):
+def create_trainSet_testSet(imageList, testFraction):
 
     trainSet = []
     testSet = []
-    for idxImage in range(len(imageList_asArray)):
+    for idxImage in range(len(imageList)):
         p = np.random.random()
         if p >= testFraction:
-            trainSet.append(imageList_asArray[idxImage])
+            trainSet.append(imageList[idxImage])
         else:
-            testSet.append(imageList_asArray[idxImage])
+            testSet.append(imageList[idxImage])
 
     return trainSet, testSet
 
@@ -63,37 +63,39 @@ def normalize_data(trainSet, testSet):
     for idxTrain in range(len(trainSet)):
         currentImage = trainSet[idxTrain]
         maxValue = np.amax(currentImage)
-        normalizedImage = [x/float(maxValue) for x in currentImage]
+        maxValue = maxValue.astype(float)
+        normalizedImage = [x.astype(float)/maxValue for x in currentImage]
         trainSet[idxTrain] = normalizedImage
 
     for idxTest in range(len(testSet)):
         currentImage = testSet[idxTest]
         maxValue = np.amax(currentImage)
-        currentImage = [x / float(maxValue) for x in currentImage]
+        maxValue = maxValue.astype(float)
+        currentImage = [x.astype(float) / maxValue for x in currentImage]
         testSet[idxTest] = currentImage
 
     return trainSet, testSet
 
 
-def eliminate_nonRGB(imageList_asArray):
+def eliminate_nonRGB(imageList):
     copy_imageList_asArray = []
-    for idxImage in range(len(imageList_asArray)):
-        currentShape = np.shape(imageList_asArray[idxImage])
+    for idxImage in range(len(imageList)):
+        currentShape = np.shape(imageList[idxImage])
         is_3D = (len(currentShape) == 3)
         if is_3D:
             thirdD_is_3 = (currentShape[2] == 3)
         else:
             thirdD_is_3 = False
         if thirdD_is_3:
-            copy_imageList_asArray.append(imageList_asArray[idxImage])
-    imageList_asArray = copy_imageList_asArray
+            copy_imageList_asArray.append(imageList[idxImage])
+    imageList = copy_imageList_asArray
 
-    return imageList_asArray
+    return imageList
 
 
-def zeroPad2Square(imageList_asArray):
-    for idxImage in range(len(imageList_asArray)):
-        currentImage = imageList_asArray[idxImage]
+def zeroPad2Square(imageList):
+    for idxImage in range(len(imageList)):
+        currentImage = imageList[idxImage]
         height = np.size(currentImage, 0)
         width = np.size(currentImage, 1)
         diff = height - width
@@ -113,24 +115,24 @@ def zeroPad2Square(imageList_asArray):
             updatedImage = np.pad(currentImage, ((0, 0), (addLeft, addRight), (0, 0)), 'constant',
                                   constant_values=(0, 0))
 
-        imageList_asArray[idxImage] = updatedImage
+        imageList[idxImage] = updatedImage
 
-    return imageList_asArray
+    return imageList
 
 
-def rescale_imageList(imageList_asArray):
+def rescale_imageList(imageList):
     meanImageSize = 0
     minImageSize = 300
     maxImageSize = 300
-    for idxImage in range(len(imageList_asArray)):
-        shape = np.shape(imageList_asArray[idxImage])
+    for idxImage in range(len(imageList)):
+        shape = np.shape(imageList[idxImage])
         size = shape[1]
         meanImageSize += size
-    meanImageSize = meanImageSize / len(imageList_asArray)
+    meanImageSize = meanImageSize / len(imageList)
 
 
-    for idxImage in range(len(imageList_asArray)):
-        shape = np.shape(imageList_asArray[idxImage])
+    for idxImage in range(len(imageList)):
+        shape = np.shape(imageList[idxImage])
         size = shape[1]
         a = 3
         if not size == meanImageSize:
@@ -138,13 +140,28 @@ def rescale_imageList(imageList_asArray):
                 minImageSize = size
             else:
                 maxImageSize = size
-            currentImage = imageList_asArray[idxImage]
+            currentImage = imageList[idxImage]
             currentImage = rescale_image(currentImage, meanImageSize, size)
-            imageList_asArray[idxImage] = currentImage
-    return imageList_asArray
+            imageList[idxImage] = currentImage
+    return imageList, meanImageSize
 
 
 def rescale_image(image_asArray, meanSize, currentSize):
     # ToDo: implement
     raise NameError('not yet implemented (not necessary in 1st dataset')
     return image_asArray
+
+
+def preprocess_imageList():
+
+    # create a list of images from data set
+    imageList = create_imageList()
+    # clean image list from black and white images
+    imageList = eliminate_nonRGB(imageList)
+    # zero pad images to square size
+    imageList = zeroPad2Square(imageList)
+
+    # up-/down-sample image size to mean size
+    imageList, mean_imageSize = rescale_imageList(imageList)
+
+    return imageList, mean_imageSize
