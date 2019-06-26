@@ -7,7 +7,7 @@ from create_imageObject import *
 
 def create_imageList():
     # path to all data
-    ground_data_path = "/Users/henrik.mettler/Desktop/DataSetForAutoencoder"
+    ground_data_path = "/Users/henrik.mettler/Desktop/DataSetForAutoencoder" # Adapt this to local path
     # folder paths
     brain_path = os.path.join(ground_data_path, "brain")
     buddha_path = os.path.join(ground_data_path, "buddha")
@@ -24,7 +24,7 @@ def create_imageList():
                  pizza_path, revolver_path, sunflower_path]
 
     imageList = []
-    imageList_asArray = []
+    imageList = []
     for idxFolder in range(len(path_list)):
         fileList = os.listdir(path_list[idxFolder])
         numberFiles = len(fileList)
@@ -35,13 +35,13 @@ def create_imageList():
             currentImage = Image.open(fileString,'r')
 
             currentImage_asArray = np.asarray(currentImage)
-            imageList_asArray.append(currentImage_asArray)
+            imageList.append(currentImage_asArray)
 
             # currentImage_data = currentImage.load()
             # currentImage_object = ImageObject(currentImage_data, label)
             # imageList.append(currentImage_object)
 
-    return imageList_asArray
+    return imageList, label
 
 
 def create_trainSet_testSet(imageList, testFraction):
@@ -155,7 +155,7 @@ def rescale_image(image_asArray, meanSize, currentSize):
 def preprocess_imageList():
 
     # create a list of images from data set
-    imageList = create_imageList()
+    imageList, label = create_imageList()
     # clean image list from black and white images
     imageList = eliminate_nonRGB(imageList)
     # zero pad images to square size
@@ -164,4 +164,16 @@ def preprocess_imageList():
     # up-/down-sample image size to mean size
     imageList, mean_imageSize = rescale_imageList(imageList)
 
-    return imageList, mean_imageSize
+    return imageList, label, mean_imageSize
+
+
+def zeroPad2OutputSize(data, dimOutput):
+    data_output = np.zeros(shape=[data.shape[0],dimOutput,dimOutput,data.shape[3]])
+    dimInput = data.shape[1]
+    numPadDim = (dimOutput - dimInput)/2
+    isZero = 'false'
+    # ToDo: this does the job, but is very ugly (and presuambly slow...)
+    for a in range(data.shape[0]):
+        data_output[a,:,:,:] = np.pad(data[a,:,:,:],((numPadDim,numPadDim), (numPadDim,numPadDim), (0, 0)), 'constant')
+
+    return data_output

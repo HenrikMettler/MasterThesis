@@ -44,7 +44,7 @@ outputLayer_activationFunction = 'sigmoid' # default from keras documentation
 outputLayer_size = inputLayer_size
 optimizer ='adadelta' # default from keras documentation
 loss ='binary_crossentropy' # default from keras documentation
-batch_size = 256 # default from keras documentation
+batch_size = 256
 num_epochs = 50
 padding = 'same' # default from keras documentation
 
@@ -87,6 +87,8 @@ encoderModel = Model(inputLayer, encodedLayer)
 #tmpDecoderLayer = autoencoderModel.layers[-1]
 #decoderModel = Model(encodedLayer, tmpDecoderLayer(encodedLayer))
 autoencoderModel.compile(optimizer=optimizer, loss=loss)
+
+autoencoderModel.summary()
 
 # Train Model
 autoencoderModel.fit(x_train, x_train, epochs=num_epochs, batch_size=batch_size, shuffle=True, validation_data=(x_test,x_test), callbacks=[TensorBoard(log_dir='/tmp/autoencoder')])
