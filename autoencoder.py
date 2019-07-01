@@ -97,27 +97,27 @@ autoencoderModel.fit(x_train, x_train, epochs=num_epochs, batch_size=batch_size,
 decoded_imgs = autoencoderModel.predict(x_test)
 
 n = 10
-plt.figure(figsize=(20, 4))
-for i in range(n):
-    # display original
-    ax = plt.subplot(2, n, i+1)
-    plt.imshow(x_test[i])
-    plt.gray()
-    ax.get_xaxis().set_visible(False)
-    ax.get_yaxis().set_visible(False)
-
-    # display reconstruction
-    ax = plt.subplot(2, n, i + 1 + n)
-    plt.imshow(decoded_imgs[i])
-    plt.gray()
-    ax.get_xaxis().set_visible(False)
-    ax.get_yaxis().set_visible(False)
-plt.show()
+# plt.figure(figsize=(20, 4))
+# for i in range(n):
+#     # display original
+#     ax = plt.subplot(2, n, i+1)
+#     plt.imshow(x_test[i].squeeze())
+#     plt.gray()
+#     ax.get_xaxis().set_visible(False)
+#     ax.get_yaxis().set_visible(False)
+#
+#     # display reconstruction
+#     ax = plt.subplot(2, n, i + 1 + n)
+#     plt.imshow(decoded_imgs[i].squeeze())
+#     plt.gray()
+#     ax.get_xaxis().set_visible(False)
+#     ax.get_yaxis().set_visible(False)
+# plt.show()
 
 
 if saveModel == 1:
-    with open(filename, "w") as f:  # The w stands for write and the b stands for binary mode (used for non-text files)
+    with open(filename, "w") as f:  # The w stands for write
         pickle.dump(autoencoderModel, f)
-
+    f.close()
 abc = 1
 
