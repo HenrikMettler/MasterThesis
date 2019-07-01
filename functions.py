@@ -5,43 +5,51 @@ import numpy as np
 from PIL import Image
 from create_imageObject import *
 
-def create_imageList():
+def create_imageList(ground_data_path):
     # path to all data
-    ground_data_path = "/Users/henrik.mettler/Desktop/DataSetForAutoencoder" # Adapt this to local path
+    ground_data_path = "/Users/henrik.mettler/Desktop/AutoencoderDataSet" # Adapt this to local path
     # folder paths
-    brain_path = os.path.join(ground_data_path, "brain")
-    buddha_path = os.path.join(ground_data_path, "buddha")
-    cellphone_path = os.path.join(ground_data_path, "cellphone")
-    crocodile_path = os.path.join(ground_data_path, "crocodile")
-    dolphin_path = os.path.join(ground_data_path, "dolphin")
-    helicopter_path = os.path.join(ground_data_path, "helicopter")
-    laptop_path = os.path.join(ground_data_path, "laptop")
-    pizza_path = os.path.join(ground_data_path, "pizza")
-    revolver_path = os.path.join(ground_data_path, "revolver")
-    sunflower_path = os.path.join(ground_data_path, "sunflower")
+    path_list = os.listdir(ground_data_path)
 
-    path_list = [brain_path, buddha_path, cellphone_path, crocodile_path, dolphin_path, helicopter_path, laptop_path,
-                 pizza_path, revolver_path, sunflower_path]
+    # brain_path = os.path.join(ground_data_path, "brain")
+    # buddha_path = os.path.join(ground_data_path, "buddha")
+    # cellphone_path = os.path.join(ground_data_path, "cellphone")
+    # crocodile_path = os.path.join(ground_data_path, "crocodile")
+    # dolphin_path = os.path.join(ground_data_path, "dolphin")
+    # helicopter_path = os.path.join(ground_data_path, "helicopter")
+    # laptop_path = os.path.join(ground_data_path, "laptop")
+    # pizza_path = os.path.join(ground_data_path, "pizza")
+    # revolver_path = os.path.join(ground_data_path, "revolver")
+    # sunflower_path = os.path.join(ground_data_path, "sunflower")
+    #
+    # path_list = [brain_path, buddha_path, cellphone_path, crocodile_path, dolphin_path, helicopter_path, laptop_path,
+    #              pizza_path, revolver_path, sunflower_path]
 
     imageList = []
-    imageList = []
+    categoryList = []
+    if '.DS_Store' in path_list:
+        path_list.remove('.DS_Store') # avoid having a unusable folder
+
     for idxFolder in range(len(path_list)):
-        fileList = os.listdir(path_list[idxFolder])
+        currentFolderName = path_list[idxFolder]
+        currentFolderPath = ground_data_path + '/' + currentFolderName
+        fileList = os.listdir(currentFolderPath)
+        if '.DS_Store' in fileList:
+            fileList.remove('.DS_Store') # avoid having a unusable file
         numberFiles = len(fileList)
         label = idxFolder + 1
 
         for idxFile in range(numberFiles):
-            fileString = brain_path + '/' + fileList[idxFile]
-            currentImage = Image.open(fileString,'r')
+            currentFileName = currentFolderPath + '/' + fileList[idxFile]
+            currentImage = Image.open(currentFileName,'r')
 
             currentImage_asArray = np.asarray(currentImage)
             imageList.append(currentImage_asArray)
+            categoryList.append(currentFolderName)
+            a = label
 
-            # currentImage_data = currentImage.load()
-            # currentImage_object = ImageObject(currentImage_data, label)
-            # imageList.append(currentImage_object)
 
-    return imageList, label
+    return imageList, categoryList
 
 
 def create_trainSet_testSet(imageList, testFraction):
@@ -77,8 +85,9 @@ def normalize_data(trainSet, testSet):
     return trainSet, testSet
 
 
-def eliminate_nonRGB(imageList):
+def eliminate_nonRGB(imageList, categoryList):
     copy_imageList_asArray = []
+    copy_categoryList = []
     for idxImage in range(len(imageList)):
         currentShape = np.shape(imageList[idxImage])
         is_3D = (len(currentShape) == 3)
@@ -88,9 +97,11 @@ def eliminate_nonRGB(imageList):
             thirdD_is_3 = False
         if thirdD_is_3:
             copy_imageList_asArray.append(imageList[idxImage])
+            copy_categoryList.append(categoryList[idxImage])
     imageList = copy_imageList_asArray
+    categoryList = copy_categoryList
 
-    return imageList
+    return imageList, categoryList
 
 
 def zeroPad2Square(imageList):
@@ -120,51 +131,73 @@ def zeroPad2Square(imageList):
     return imageList
 
 
-def rescale_imageList(imageList):
-    meanImageSize = 0
-    minImageSize = 300
-    maxImageSize = 300
+def rescale_imageList(imageList, categoryList):
+    # Todo: Current version has lots of hardcoded stuff
+    # meanImageSize = 0
+    # minImageSize = 299
+    # maxImageSize = 300
+    # a = 0
+    # b = 0
+    copy_imageList = []
+    copy_categoryList = []
     for idxImage in range(len(imageList)):
         shape = np.shape(imageList[idxImage])
         size = shape[1]
-        meanImageSize += size
-    meanImageSize = meanImageSize / len(imageList)
+        if size == 300:
+            copy_imageList.append(imageList[idxImage])
+            copy_categoryList.append(categoryList[idxImage])
+        # if size < 300:
+        #     a += 1
+        # if size > 300:
+        #     b += 1
+        # if size <= minImageSize:
+        #     minImageSize = size
+        # if size > maxImageSize:
+        #     maxImageSize = size
+        # meanImageSize += size
+        # if size == 299:
+        #     imageList[idxImage] = rescale_image(imageList[idxImage], 300, 299)
 
 
-    for idxImage in range(len(imageList)):
-        shape = np.shape(imageList[idxImage])
-        size = shape[1]
-        a = 3
-        if not size == meanImageSize:
-            if size < meanImageSize:
-                minImageSize = size
-            else:
-                maxImageSize = size
-            currentImage = imageList[idxImage]
-            currentImage = rescale_image(currentImage, meanImageSize, size)
-            imageList[idxImage] = currentImage
-    return imageList, meanImageSize
+    meanImageSize = 300 #meanImageSize / len(imageList)
 
 
-def rescale_image(image_asArray, meanSize, currentSize):
-    # ToDo: implement
-    raise NameError('not yet implemented (not necessary in 1st dataset')
-    return image_asArray
+    # for idxImage in range(len(imageList)):
+    #     shape = np.shape(imageList[idxImage])
+    #     size = shape[1]
+    #     if not size == meanImageSize:
+    #         if size < meanImageSize:
+    #             minImageSize = size
+    #         else:
+    #             maxImageSize = size
+    #         currentImage = imageList[idxImage]
+    #         currentImage = rescale_image(currentImage, meanImageSize, size)
+    #         imageList[idxImage] = currentImage
+    imageList = copy_imageList
+    categoryList = copy_categoryList
+
+    return imageList, categoryList, meanImageSize
 
 
-def preprocess_imageList():
+def rescale_image(image, meanSize=300, currentSize=299):
+    # ToDo: implement with specifics
+    return_image = np.pad(image,((1,0),(1,0),(0,0)),'constant')
+    return return_image
+
+
+def preprocess_imageList(ground_data_path="/Users/henrik.mettler/Desktop/DataSetForAutoencoder"):
 
     # create a list of images from data set
-    imageList, label = create_imageList()
+    imageList, categoryList = create_imageList(ground_data_path)
     # clean image list from black and white images
-    imageList = eliminate_nonRGB(imageList)
+    imageList, categoryList = eliminate_nonRGB(imageList, categoryList)
     # zero pad images to square size
     imageList = zeroPad2Square(imageList)
 
     # up-/down-sample image size to mean size
-    imageList, mean_imageSize = rescale_imageList(imageList)
+    imageList, categoryList, mean_imageSize = rescale_imageList(imageList, categoryList)
 
-    return imageList, label, mean_imageSize
+    return imageList, categoryList, mean_imageSize
 
 
 def zeroPad2OutputSize(data, dimOutput):

@@ -45,7 +45,7 @@ outputLayer_size = inputLayer_size
 optimizer ='adadelta' # default from keras documentation
 loss ='binary_crossentropy' # default from keras documentation
 batch_size = 256
-num_epochs = 50
+num_epochs = 20
 padding = 'same' # default from keras documentation
 
 # Regularization Parameter

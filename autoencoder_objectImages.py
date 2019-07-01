@@ -16,6 +16,9 @@ matplotlib.use("TkAgg") # matplotlib import adapted for use on MacOS
 
 from matplotlib import pyplot as plt
 
+# define the path to the dataset, containing the different image categories as subfolders
+ground_data_path = "/Users/henrik.mettler/Desktop/DataSetForAutoencoder"
+
 # parameters
 testFraction = 0.1
 # boolean for model saving
@@ -27,7 +30,7 @@ filename = (helperStr + ".pickle")
 
 
 # create a list of images from data set
-imageList, label, mean_imageSize = preprocess_imageList()
+imageList, categoryList, mean_imageSize = preprocess_imageList(ground_data_path)
 
 # split data in train and test with desired percentages
 trainSet, testSet = create_trainSet_testSet(imageList, testFraction)
@@ -56,16 +59,16 @@ for idxtestSet in range(len(testSet)):
 inputLayer_size = mean_imageSize
 num_conv_layer = 3 # for now the architecture below is fixed for num_conv_layer = 3
 num_pool_layer = num_conv_layer
-filter_sizes = [4, 4 ,8]
-kernel_sizes = [3,3,3]
-maxpool_sizes = [2,2,2]
+filter_sizes = [4, 8, 16]
+kernel_sizes = [12, 4, 4]
+maxpool_sizes = [2, 2, 2]
 hiddenLayer_activationFunction = 'relu' # same across all layers
 outputLayer_activationFunction = 'sigmoid' # default from keras documentation
 outputLayer_size = inputLayer_size # redundant info
 optimizer ='adadelta' # default from keras documentation
 loss ='binary_crossentropy' # default from keras documentation
 batch_size = 4
-num_epochs = 50
+num_epochs = 20
 padding = 'same' # default from keras documentation
 
 # Regularization Parameter
@@ -75,27 +78,31 @@ regularizationParameter = regularizers.l1(10e-5)
 # Create convolutional downsampling with two layers
 inputLayer = Input(shape=(inputLayer_size, inputLayer_size, 3))  # adapt this if using `channels_first` image data format
 
-# Todo: Adapt filter and kernel sizes (optimize?)
 x1 = Conv2D(filters=filter_sizes[0], kernel_size= kernel_sizes[0] , activation=hiddenLayer_activationFunction, padding='same', data_format="channels_last")(inputLayer)
 x2 = MaxPooling2D(maxpool_sizes[0], padding=padding)(x1)
 x3 = Conv2D(filters=filter_sizes[1], kernel_size= kernel_sizes[1] , activation=hiddenLayer_activationFunction, padding='same', data_format="channels_last")(x2)
 x4 = MaxPooling2D(maxpool_sizes[1], padding=padding)(x3)
 x5 = Conv2D(filters=filter_sizes[2], kernel_size= kernel_sizes[2] , activation=hiddenLayer_activationFunction, padding='same', data_format="channels_last")(x4)
-encodedLayer = MaxPooling2D(maxpool_sizes[2], padding=padding)(x5)
+encodedLayer= MaxPooling2D(maxpool_sizes[2], padding=padding)(x5)
+
+# x7 = Conv2D(filters=filter_sizes[3], kernel_size= kernel_sizes[3] , activation=hiddenLayer_activationFunction, padding='same', data_format="channels_last")(x6)
+# encodedLayer = MaxPooling2D(maxpool_sizes[3], padding=padding)(x7)
 
 # at this point the representation is ~ input/(prod(maxpool))^2 *filter[end] eg: 300^2/(2*2*2)^2*8=-dimensional
 
-x6 = Conv2D(filters=filter_sizes[2], kernel_size= kernel_sizes[2], activation=hiddenLayer_activationFunction, padding=padding)(encodedLayer)
-x7 = UpSampling2D(maxpool_sizes[2])(x6)
-x8 = Conv2D(filters=filter_sizes[1], kernel_size= kernel_sizes[1], activation=hiddenLayer_activationFunction, padding= padding)(x7)
-x9 = UpSampling2D(maxpool_sizes[1])(x8)
-x10 = Conv2D(filters=filter_sizes[0], kernel_size= kernel_sizes[0], activation=hiddenLayer_activationFunction)(x9)
-x11 = UpSampling2D(maxpool_sizes[0])(x10)
-outputLayer = Conv2D(3, (3, 3), activation=outputLayer_activationFunction, padding=padding)(x11)
+# x8 = Conv2D(filters=filter_sizes[3], kernel_size= kernel_sizes[3], activation=hiddenLayer_activationFunction, padding=padding)(encodedLayer)
+# x9 = UpSampling2D(maxpool_sizes[3])(x8)
+x10 = Conv2D(filters=filter_sizes[2], kernel_size= kernel_sizes[2], activation=hiddenLayer_activationFunction, padding= padding)(encodedLayer)
+x11= UpSampling2D(maxpool_sizes[2])(x10)
+x12 = Conv2D(filters=filter_sizes[1], kernel_size= kernel_sizes[1], activation=hiddenLayer_activationFunction,padding= padding)(x11)
+x13 = UpSampling2D(maxpool_sizes[1])(x12)
+x14 = Conv2D(filters=filter_sizes[0], kernel_size= kernel_sizes[0], activation=hiddenLayer_activationFunction,padding= padding)(x13)
+x15 = UpSampling2D(maxpool_sizes[0])(x14)
+outputLayer = Conv2D(3, (3, 3), activation=outputLayer_activationFunction, padding=padding)(x15)
 
 
 # Create Model
-autoencoderModel = Model(inputLayer,outputLayer)
+autoencoderModel = Model(inputLayer, outputLayer)
 encoderModel = Model(inputLayer, encodedLayer)
 #tmpDecoderLayer = autoencoderModel.layers[-1]
 #decoderModel = Model(encodedLayer, tmpDecoderLayer(encodedLayer))
@@ -105,7 +112,7 @@ autoencoderModel.compile(optimizer=optimizer, loss=loss)
 print('Summary of the Autoencoder model with layer shapes')
 autoencoderModel.summary()
 
-dimOutput = 300# Todo: change to get dim info from output layer as int
+dimOutput = 304# Todo: change to get dim info from output layer as int
 # adapt train and test data for output layer to output layer size (zero padding at the edges ToDo: alter hardcoded struct
 x_train_output = zeroPad2OutputSize(x_train, dimOutput)
 x_test_output = zeroPad2OutputSize(x_test, dimOutput)
@@ -121,14 +128,14 @@ plt.figure(figsize=(20, 4))
 for i in range(n):
     # display original
     ax = plt.subplot(2, n, i+1)
-    plt.imshow(x_test_output[5*i])
+    plt.imshow(x_test_output[7*i])
     plt.gray()
     ax.get_xaxis().set_visible(False)
     ax.get_yaxis().set_visible(False)
 
     # display reconstruction
     ax = plt.subplot(2, n, i + 1 + n)
-    plt.imshow(decoded_imgs[5*i])
+    plt.imshow(decoded_imgs[7*i])
     plt.gray()
     ax.get_xaxis().set_visible(False)
     ax.get_yaxis().set_visible(False)
