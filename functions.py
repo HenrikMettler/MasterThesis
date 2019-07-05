@@ -1,6 +1,11 @@
 import os
 import numpy as np
 # import pickle
+from TwoStepTask import *
+from keras.layers import LSTM, LSTMCell, Dense
+from keras.models import Sequential
+from keras.models import Model
+from keras.optimizers import RMSprop
 
 from PIL import Image
 from create_imageObject import *
@@ -211,14 +216,6 @@ def zeroPad2OutputSize(data, dimOutput):
 
     return data_output
 
-import numpy as np
-
-from TwoStepTask import *
-from keras.layers import LSTM, LSTMCell, Dense
-from keras.models import Sequential
-from keras.models import Model
-from keras.optimizers import RMSprop
-
 
 def create_environment(environment_name):
     if environment_name == 'twoStepTask':
@@ -230,19 +227,20 @@ def create_environment(environment_name):
     return environment
 
 
-def create_dm_network(lstm_param_list, optimizer):
-    # Todo: Why are the params in cell and model??
-    lstm_cells = LSTMCell(num_units=lstm_param_list[0], activation=lstm_param_list[1],
-                          recurrent_activation=lstm_param_list[2], use_bias=lstm_param_list[3],
-                          kernel_initializer=lstm_param_list[4], recurrent_initializer=lstm_param_list[5],
-                          bias_initializer=lstm_param_list[6], unit_forget_bias=lstm_param_list[7],
-                          kernel_regularizer=lstm_param_list[8], recurrent_regularizer=lstm_param_list[9],
-                          bias_regularizer=lstm_param_list[10], kernel_constraint=lstm_param_list[11],
-                          recurrent_constraint=lstm_param_list[12], bias_constraint=lstm_param_list[13],
-                          dropout=lstm_param_list[14], recurrent_dropout=lstm_param_list[15],
-                          implementation=lstm_param_list[16])
+def create_dm_network(lstm_param_list, encoderModel, optimizer):
+    # Todo: Reshape the input from (4,4,8) to 128 ?
+    # lstm_cells = LSTMCell(num_units=lstm_param_list[0], activation=lstm_param_list[1],
+    #                       recurrent_activation=lstm_param_list[2], use_bias=lstm_param_list[3],
+    #                       kernel_initializer=lstm_param_list[4], recurrent_initializer=lstm_param_list[5],
+    #                       bias_initializer=lstm_param_list[6], unit_forget_bias=lstm_param_list[7],
+    #                       kernel_regularizer=lstm_param_list[8], recurrent_regularizer=lstm_param_list[9],
+    #                       bias_regularizer=lstm_param_list[10], kernel_constraint=lstm_param_list[11],
+    #                       recurrent_constraint=lstm_param_list[12], bias_constraint=lstm_param_list[13],
+    #                       dropout=lstm_param_list[14], recurrent_dropout=lstm_param_list[15],
+    #                       implementation=lstm_param_list[16])
 
-    lstm_network = LSTM(lstm_cells, num_units = lstm_param_list[0],activation=lstm_param_list[1],
+    lstm_network = LSTM(num_units=lstm_param_list[0], input_shape=encoderModel.layers[-1].output_shape,
+                        activation=lstm_param_list[1],
                         recurrent_activation=lstm_param_list[2], use_bias=lstm_param_list[3],
                         kernel_initializer=lstm_param_list[4], recurrent_initializer=lstm_param_list[5],
                         bias_initializer=lstm_param_list[6], unit_forget_bias=lstm_param_list[7],
