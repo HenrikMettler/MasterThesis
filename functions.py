@@ -1,7 +1,6 @@
 import os
 import numpy as np
 # import pickle
-from TwoStepTask import *
 from keras.layers import LSTM, LSTMCell, Dense
 from keras.models import Sequential
 from keras.models import Model
@@ -10,25 +9,12 @@ from keras.optimizers import RMSprop
 from PIL import Image
 from create_imageObject import *
 
+
 def create_imageList(ground_data_path):
     # path to all data
     ground_data_path = "/Users/henrik.mettler/Desktop/AutoencoderDataSet" # Adapt this to local path
     # folder paths
     path_list = os.listdir(ground_data_path)
-
-    # brain_path = os.path.join(ground_data_path, "brain")
-    # buddha_path = os.path.join(ground_data_path, "buddha")
-    # cellphone_path = os.path.join(ground_data_path, "cellphone")
-    # crocodile_path = os.path.join(ground_data_path, "crocodile")
-    # dolphin_path = os.path.join(ground_data_path, "dolphin")
-    # helicopter_path = os.path.join(ground_data_path, "helicopter")
-    # laptop_path = os.path.join(ground_data_path, "laptop")
-    # pizza_path = os.path.join(ground_data_path, "pizza")
-    # revolver_path = os.path.join(ground_data_path, "revolver")
-    # sunflower_path = os.path.join(ground_data_path, "sunflower")
-    #
-    # path_list = [brain_path, buddha_path, cellphone_path, crocodile_path, dolphin_path, helicopter_path, laptop_path,
-    #              pizza_path, revolver_path, sunflower_path]
 
     imageList = []
     categoryList = []
@@ -52,7 +38,6 @@ def create_imageList(ground_data_path):
             imageList.append(currentImage_asArray)
             categoryList.append(currentFolderName)
             a = label
-
 
     return imageList, categoryList
 
@@ -217,68 +202,112 @@ def zeroPad2OutputSize(data, dimOutput):
     return data_output
 
 
-def create_environment(environment_name):
-    if environment_name == 'twoStepTask':
-        environment = TwoStepTask()
-    #elif environment_name == 'harlow':
-        environment = 1
+def create_sample_representation(encoder_Model, data, label, is_training):
+    # pick up two random elements from the data set and their labels
+    size_data = label.size
+    element_one = np.random.randint(0,size_data-1)
+    element_two = np.random.randint(0,size_data-1)
+    label_one = label[element_one]
+    label_two = label[element_two]
+
+    # pick up the data from the element one
+    data_one = data[element_one]
+    picked_data = np.zeros((2, np.shape(data_one)[0], np.shape(data_one)[1], np.shape(data_one)[2]))
+    picked_data[0,:,:,:] = data_one
+
+    # check that they belong to different classes, if not repeat replacing the 2nd until the labels are no longer equal
+    if label_one == label_two:
+        label_are_equal = 'true'
     else:
-        raise NameError('Environment does not exist yet, please use harlow or two step task')
-    return environment
+        label_are_equal = 'false'
+
+    while label_are_equal == 'true':
+        element_two = np.random.randint(0,size_data-1)
+        label_two = label[element_two]
+        if label_one != label_two:
+            label_are_equal = 'false'
+
+    # pick up the data for the second element
+    data_two = data[element_two]
+    picked_data [1,:,:,:] = data_two
+
+    # calculate the hidden representation of the two data inputs
+    hidden_representations = encoder_Model.predict(picked_data)
+
+    # return the labels as a vector
+    labels_out = [label_one, label_two]
+
+    return hidden_representations, labels_out # explicitly don't return the data, as it is not accessible to the DM!
 
 
-def create_dm_network(lstm_param_list, encoderModel, optimizer):
-    # Todo: Reshape the input from (4,4,8) to 128 ?
-    # lstm_cells = LSTMCell(num_units=lstm_param_list[0], activation=lstm_param_list[1],
-    #                       recurrent_activation=lstm_param_list[2], use_bias=lstm_param_list[3],
-    #                       kernel_initializer=lstm_param_list[4], recurrent_initializer=lstm_param_list[5],
-    #                       bias_initializer=lstm_param_list[6], unit_forget_bias=lstm_param_list[7],
-    #                       kernel_regularizer=lstm_param_list[8], recurrent_regularizer=lstm_param_list[9],
-    #                       bias_regularizer=lstm_param_list[10], kernel_constraint=lstm_param_list[11],
-    #                       recurrent_constraint=lstm_param_list[12], bias_constraint=lstm_param_list[13],
-    #                       dropout=lstm_param_list[14], recurrent_dropout=lstm_param_list[15],
-    #                       implementation=lstm_param_list[16])
+def create_dm_network(num_units, input_shape, optimizer, loss):
 
-    lstm_network = LSTM(num_units=lstm_param_list[0], input_shape=encoderModel.layers[-1].output_shape,
-                        activation=lstm_param_list[1],
-                        recurrent_activation=lstm_param_list[2], use_bias=lstm_param_list[3],
-                        kernel_initializer=lstm_param_list[4], recurrent_initializer=lstm_param_list[5],
-                        bias_initializer=lstm_param_list[6], unit_forget_bias=lstm_param_list[7],
-                        kernel_regularizer=lstm_param_list[8], recurrent_regularizer=lstm_param_list[9],
-                        bias_regularizer=lstm_param_list[10], activity_regularizer = lstm_param_list[17],
-                        kernel_constraint=lstm_param_list[11],
-                        recurrent_constraint=lstm_param_list[12], bias_constraint=lstm_param_list[13],
-                        dropout=lstm_param_list[14], recurrent_dropout=lstm_param_list[15],
-                        implementation=lstm_param_list[16], return_sequences = lstm_param_list[18],
-                        return_state=lstm_param_list[19])
+    time_step_per_trial = 1
+    # hidden_size = 128
+
+    lstm_layer = LSTM(num_units,return_sequences=True, input_shape=(time_step_per_trial, input_shape))
 
     dm_network = Sequential()
-    # Todo: This probably lacks proper input layer and output layer structure
-    dm_network.add(lstm_network)
-    dm_network.compile(optimizer=optimizer)
+    dm_network.add(lstm_layer)
+    dm_network.compile(optimizer=optimizer, loss=loss)
     dm_network.summary()
 
     return dm_network
 
 
-def create_worker():
-    meta_rl_worker = 1
-    return meta_rl_worker
+def mix_up(hidden_rep1, hidden_rep2, labels):
+    label1 = labels[0]
+    label2 = labels[1]
+    #copy_labels = labels
+    p = np.random.random_sample()
+
+    hidden_representations = np.zeros((2, np.shape(hidden_rep1)[0], np.shape(hidden_rep1)[1], np.shape(hidden_rep1)[2]))
+    # change the order if p > 0.5
+    if p < 0.5:
+        hidden_representations[0, :, :, :] = hidden_rep1
+        hidden_representations[1, :, :, :] = hidden_rep2
+    else:
+        hidden_representations[0,:,:,:] = hidden_rep2
+        hidden_representations[1,:,:,:] = hidden_rep1
+        labels[0] = label2
+        labels[1] = label1
+
+    return hidden_representations, labels
 
 
-def training(trainer = 0, dm_network = 0, gamma = 0):
-    updated_trainer = trainer + gamma * dm_network
-    return updated_trainer
+def trial_run(dm_network, hidden_representation, labels):
+    # Run a trial: DM takes two hidden representations, previous rewards and previous actions as input and outputs an
+    # action (selection of one of the two representations)
+    # concatenate the two hidden reps into one input
+    rep1 = hidden_representation[0,:,:,:]
+    rep2 = hidden_representation[1,:,:,:]
+    rep1 = rep1.reshape(np.shape(rep1)[0]*np.shape(rep1)[1]*np.shape(rep1)[2])
+    rep2 = rep2.reshape(np.shape(rep2)[0] * np.shape(rep2)[1] * np.shape(rep2)[2])
+    dm_input = np.concatenate((rep1, rep2))
+
+
+    return selected_action
+
+
+def check_reward(action, labels):
+    # Todo: implement
+    reward = 0
+    return reward
+
+
+def training(dm_network, optimizer, learning_rate):
+    # Todo: implement
+    return dm_network
 
 
 # Used to initialize weights for policy and value output layers
-def normalized_columns_initializer(std=1.0):
-    def _initializer(shape, dtype=None, partition_info=None):
-        out = np.random.randn(*shape).astype(np.float32)
-        out *= std / np.sqrt(np.square(out).sum(axis=0, keepdims=True))
-        return tf.constant(out)
-
-    return _initializer
+# def normalized_columns_initializer(std=1.0):
+#     def _initializer(shape, dtype=None, partition_info=None):
+#         out = np.random.randn(*shape).astype(np.float32)
+#         out *= std / np.sqrt(np.square(out).sum(axis=0, keepdims=True))
+#         return tf.constant(out)
+#
+#     return _initializer
 
 
 class Create_Args():
