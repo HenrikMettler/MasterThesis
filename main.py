@@ -99,9 +99,9 @@ for idx_episode in range(num_episode_train):
         good_label = labels[0]
 
     # Set some parameters to episode start
-    episode_buffer, episode_values, episode_frames = [],  [], []
+    episode_buffer, episode_values, episode_frames, episode_reward = [],  [], [], []
     d = False
-    episode_reward, r, a, t = 0, 0, 0, 0
+    reward, a, t = 0, 0, 0, 0
 
     # perform the trials
     for idx_trial in range(num_trial_per_episode):
@@ -112,6 +112,7 @@ for idx_episode in range(num_episode_train):
 
         action = trial_run(dm_network, hidden_representations, labels)
         reward = check_reward(action, labels, good_label)
+        episode_reward.append(reward)
         dm_network = training(dm_network, optimizer, learning_rate)
 
 
