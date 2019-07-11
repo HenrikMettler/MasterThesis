@@ -240,7 +240,7 @@ def create_sample_representation(encoder_Model, data, label, is_training):
     return hidden_representations, labels_out # explicitly don't return the data, as it is not accessible to the DM!
 
 
-def create_dm_network(num_units, input_shape, optimizer, loss):
+def create_dm_network(num_units, input_shape, optimizer, loss, output_activation='sigmoid'):
 
     time_step_per_trial = 1
     # hidden_size = 128
@@ -249,10 +249,29 @@ def create_dm_network(num_units, input_shape, optimizer, loss):
 
     dm_network = Sequential()
     dm_network.add(lstm_layer)
+    dm_network.add(Dense(1,activation=output_activation))
     dm_network.compile(optimizer=optimizer, loss=loss)
     dm_network.summary()
 
     return dm_network
+
+def create_networks(num_units, input_shape, optimizer, loss, output_activation='sigmoid', time_step_per_trial = 1):
+
+    lstm_layer = LSTM(num_units,return_sequences=True, input_shape=(time_step_per_trial, input_shape))
+
+    action_network = Sequential()
+    action_network.add(lstm_layer)
+    action_network.add(Dense(1,activation=output_activation))
+    action_network.compile(optimizer=optimizer, loss=loss)
+    action_network.summary()
+
+    value_network = Sequential()
+    value_network.add(lstm_layer)
+    value_network.add(Dense(1,activation=output_activation))
+    value_network.compile(optimizer=optimizer, loss=loss)
+    value_network.summary()
+
+    return action_network, value_network
 
 
 def mix_up(hidden_rep1, hidden_rep2, labels):
@@ -284,19 +303,35 @@ def trial_run(dm_network, hidden_representation, labels):
     rep1 = rep1.reshape(np.shape(rep1)[0]*np.shape(rep1)[1]*np.shape(rep1)[2])
     rep2 = rep2.reshape(np.shape(rep2)[0] * np.shape(rep2)[1] * np.shape(rep2)[2])
     dm_input = np.concatenate((rep1, rep2))
+    dm_input = np.array([dm_input])
+    dm_input = np.array([dm_input])
+    prediction = dm_network.predict(dm_input, batch_size=None, verbose=0, steps=None)
+    choice = int(round(prediction)) # todo: change this rounding to be part of the model!
+
+    return choice, prediction, dm_input
 
 
-    return selected_action
+def check_reward(choice, labels, good_label):
+    # convert choice to int if it is a float
+    if isinstance(choice, float):
+        choice = int(choice)
 
+    if labels[choice] == good_label:
+        reward = 1
+    else:
+        reward = -1
 
-def check_reward(action, labels):
-    # Todo: implement
-    reward = 0
     return reward
 
 
-def training(dm_network, optimizer, learning_rate):
-    # Todo: implement
+def training(dm_network, target, prediction, choice, all_hidden_reps, optimizer, learning_rate):
+
+    #loss = np.square(target - prediction)
+    target = np.array([target])
+    target = np.array([target])
+    target = np.moveaxis(target,2,0)
+    dm_network.fit(all_hidden_reps, target)
+
     return dm_network
 
 

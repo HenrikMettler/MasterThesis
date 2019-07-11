@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2280c287-62f3-4d20-b984-8317918dcf07" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoencoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoencoder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -12,30 +16,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mainMetaRL.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1588">
-              <caret line="131" selection-start-line="80" selection-end-line="131" />
-              <folding>
-                <element signature="e#0#16#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AcNetwork.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" column="39" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/helper.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -48,10 +28,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/autoencoder.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1330">
+              <caret line="47" selection-start-line="47" selection-end-line="47" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="80" column="30" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="30" />
+            <state relative-caret-position="463">
+              <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -62,8 +54,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/functions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="280" column="52" lean-forward="true" selection-start-line="280" selection-start-column="52" selection-end-line="280" selection-end-column="52" />
+            <state relative-caret-position="213">
+              <caret line="332" column="43" selection-start-line="332" selection-start-column="43" selection-end-line="332" selection-end-column="43" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -83,6 +75,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>train_mode</find>
+      <find>optimizer</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -95,16 +88,16 @@
         <option value="$PROJECT_DIR$/.idea/modules.xml" />
         <option value="$PROJECT_DIR$/.idea/misc.xml" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+        <option value="$PROJECT_DIR$/floydTemp.py" />
         <option value="$PROJECT_DIR$/autoencoder.py" />
-        <option value="$PROJECT_DIR$/functions.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/functions.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="521" />
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1496" />
+    <option name="width" value="1992" />
     <option name="height" value="1129" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -119,6 +112,11 @@
             <path>
               <item name="MasterThesis" type="b2602c69:ProjectViewProjectNode" />
               <item name="MasterThesis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MasterThesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MasterThesis" type="462c0819:PsiDirectoryNode" />
+              <item name="A3C" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -225,16 +223,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="2048" height="1152" extended-state="0" />
+    <frame x="0" y="23" width="1992" height="1129" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13320178" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21461187" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3297975" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.29574862" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.33654773" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -255,11 +253,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/autoencoder.py</url>
-          <line>177</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/autoencoder_objectImages.py</url>
           <line>114</line>
           <option name="timeStamp" value="12" />
@@ -270,24 +263,19 @@
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/autoencoder.py</url>
-          <line>151</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/autoencoder.py</url>
-          <line>154</line>
-          <option name="timeStamp" value="22" />
+          <url>file://$PROJECT_DIR$/functions.py</url>
+          <line>267</line>
+          <option name="timeStamp" value="72" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>112</line>
-          <option name="timeStamp" value="37" />
+          <line>141</line>
+          <option name="timeStamp" value="94" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/functions.py</url>
-          <line>285</line>
-          <option name="timeStamp" value="65" />
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>108</line>
+          <option name="timeStamp" value="97" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -302,49 +290,86 @@
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
       <expression>
-        <expression-string>lstm_layer = LSTM(num_units,return_sequences=True, input_shape=(time_step_per_trial, 2, input_shape))</expression-string>
+        <expression-string>extended_target = np.transpose(extended_target)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>dm_input = np.concatenate((hidden_representation[0,:,:,:], hidden_representation[1,:,:,:]), axis=0)</expression-string>
+        <expression-string>dm_network.fit(all_hidden_reps, target)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>hidden_representations = np.zeros((2, np.shape(hidden_rep1)[0], np.shape(hidden_rep1)[1], np.shape(hidden_rep1)[2]))</expression-string>
+        <expression-string>all_hidden_reps = np.zeros((num_samples_per_training, input_shape))</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>a = np.shape(hidden_representations)[2]</expression-string>
+        <expression-string>choice = int(1.0)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>a = np.shape(hidden_representations,2)</expression-string>
+        <expression-string>choice = int(choice)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>a = np.size(hidden_representations)</expression-string>
+        <expression-string>a = isinstance(choice, float)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>p = 0.6</expression-string>
+        <expression-string>reward = check_reward(current_choice, labels, good_label)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>input_shape = 2*encoderModel.layers[-1].output_shape[1]*encoderModel.layers[-1].output_shape[2]*encoderModel.layers[-1].output_shape[3]</expression-string>
+        <expression-string>reward = check_reward(choice[idx_training_sample], labels, good_label)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>p = np.random.random_sample()</expression-string>
+        <expression-string>idx_training_sample = idx_trial%num_samples_per_training</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>aa = 10%10</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+    </expressions>
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>dm_network.fit(all_hidden_reps, target)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>dm_network.fit(all_hidden_reps, target, loss='mean_squared_error')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>target = np.moveaxis(target, 2, 0)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>target = np.array([target])</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>extended_target = extended_target[1;0;2]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>extended_target = np.array([extended_target])</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
   </component>
@@ -410,21 +435,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/helper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/autoencoder_objectImages.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="106" column="46" selection-start-line="106" selection-start-column="46" selection-end-line="106" selection-end-column="46" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/twoStepTaskMain.py" />
+    <entry file="file://$PROJECT_DIR$/WorkerTwoStepTask2.py" />
+    <entry file="file://$PROJECT_DIR$/floydTemp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1531">
+          <caret line="367" column="28" selection-start-line="367" selection-start-column="28" selection-end-line="367" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../two-step-task/biorxiv-final.ipynb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2113" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/A3C/a3c.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainMetaRL.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="106" column="13" lean-forward="true" selection-start-line="106" selection-start-column="13" selection-end-line="106" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -439,34 +489,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mainMetaRL.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1588">
-          <caret line="131" selection-start-line="80" selection-end-line="131" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/twoStepTaskMain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-180" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WorkerTwoStepTask2.py">
+    <entry file="file://$PROJECT_DIR$/helper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/autoencoder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="974">
-          <caret line="177" selection-start-line="177" selection-end-line="177" />
+        <state relative-caret-position="-1330">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -475,8 +510,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="80" column="30" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="30" />
+        <state relative-caret-position="463">
+          <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>
@@ -485,8 +520,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/functions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="280" column="52" lean-forward="true" selection-start-line="280" selection-start-column="52" selection-end-line="280" selection-end-column="52" />
+        <state relative-caret-position="213">
+          <caret line="332" column="43" selection-start-line="332" selection-start-column="43" selection-end-line="332" selection-end-column="43" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

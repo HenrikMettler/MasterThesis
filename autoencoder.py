@@ -133,7 +133,7 @@ encoderOnlyModel.add(MaxPooling2D((2, 2), padding=padding,weights=weights3))
 encoderOnlyModel.add(Conv2D(8, (3, 3), activation=hiddenLayer_activationFunction, padding=padding, weights=weights4))
 encoderOnlyModel.add(MaxPooling2D((2, 2), padding=padding, weights=weights5))
 encoderOnlyModel.add(Conv2D(8, (3, 3), activation=hiddenLayer_activationFunction, padding=padding, weights=weights6))
-
+autoencoderModel.compile(optimizer=optimizer, loss=loss)
 encoderOnlyModel.summary()
 
 # model2 = Sequential()

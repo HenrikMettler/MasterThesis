@@ -15,7 +15,8 @@ matplotlib.use("TkAgg") # matplotlib import adapted for use on MacOS
 
 from matplotlib import pyplot as plt
 
-filename = "autoencoder_mnist2019-07-05 12:00:03.686985.pickle"
+# filename = "autoencoder_mnist2019-07-05 12:00:03.686985.pickle"
+filename= "autoencoder_mnist2019-07-11 12:34:09.098789.pickle"
 
 infile = open(filename,'rb')
 autoencoderModel, encoderModel = pickle.load(infile)
@@ -47,12 +48,12 @@ num_threads = 32 # taken from Wang 2018
 gamma = .9
 a_size = 2
 num_seeds = 1 # change to 8 or 10 or so
-num_episode_train = 20000
+num_episode_train = 200
 num_episode_test = 300
 num_trial_per_episode = 100
 learning_rate = 7e-4
 optimizer = 'rmsprop'
-loss = 'categorical_crossentropy'
+loss = 'mean_squared_error'
 
 # LSTMCell parameters
 num_units = 48 # Wang: 256
@@ -77,15 +78,20 @@ use_bias = True
 # return_sequences = False
 # return_state = False
 
-# create network
-dm_network = create_dm_network(num_units, input_shape,optimizer, loss)
-# worker = create_worker()
+# create networks
+#action_network, value_network = create_networks(num_units, input_shape, optimizer, loss)
+dm_network = create_dm_network(num_units, input_shape, optimizer, loss)
 
-# coord = tf.train.Coordinator()
-# sess = tf.Session()
-episode_is_finished = 'false'
+num_samples_per_training = 10
+choice = np.zeros(num_samples_per_training)
+prediction = np.zeros(num_samples_per_training)
+target = np.zeros(num_samples_per_training)
+all_inputs_for_training = np.zeros((num_samples_per_training, 1,input_shape))
+
 
 for idx_episode in range(num_episode_train):
+    print("This is the beginning of episode: ")
+    print(idx_episode+1)
 
     # sample two hidden representations
     hidden_representations, labels \
@@ -99,20 +105,38 @@ for idx_episode in range(num_episode_train):
         good_label = labels[0]
 
     # Set some parameters to episode start
-    episode_buffer, episode_values, episode_frames, episode_reward = [],  [], [], []
-    d = False
-    reward, a, t = 0, 0, 0, 0
+    episode_action, episode_reward = [], []
+    reward, a, t = 0, 0, 0
 
     # perform the trials
     for idx_trial in range(num_trial_per_episode):
+
+        idx_training_sample = idx_trial%num_samples_per_training
+
+
         # mix up the representations into random order # Todo: This is a bit ugly, but doing it locally in the function doesn't work
         hidden_rep1 = hidden_representations[0,:,:,:]
         hidden_rep2 = hidden_representations[1,:,:,:]
         hidden_representations, labels = mix_up(hidden_rep1, hidden_rep2, labels)
 
-        action = trial_run(dm_network, hidden_representations, labels)
-        reward = check_reward(action, labels, good_label)
+        # define the target value of the trial
+        if labels[0] == good_label:
+            target [idx_training_sample] = 0
+        elif labels[1] == good_label:
+            target [idx_training_sample] = 1
+        else:
+            raise('Current architecture only supports 2 choices')
+
+
+        choice[idx_training_sample], prediction[idx_training_sample], dm_input = trial_run(dm_network, hidden_representations, labels)
+        all_inputs_for_training[idx_training_sample, :] = dm_input
+        current_choice = choice[idx_training_sample]
+        reward = check_reward(current_choice, labels, good_label)
         episode_reward.append(reward)
-        dm_network = training(dm_network, optimizer, learning_rate)
 
+        if idx_training_sample == (num_samples_per_training-1): # only do training at the end of a block
+            dm_network = training(dm_network, target, prediction, choice, all_inputs_for_training, optimizer, learning_rate)
 
+    # loss statistics
+
+a = 3
