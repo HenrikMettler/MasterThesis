@@ -330,9 +330,9 @@ def training(dm_network, target, prediction, choice, all_hidden_reps, optimizer,
     target = np.array([target])
     target = np.array([target])
     target = np.moveaxis(target,2,0)
-    dm_network.fit(all_hidden_reps, target)
-
-    return dm_network
+    info = dm_network.fit(all_hidden_reps, target, verbose=0)
+    loss = info.history
+    return dm_network, loss
 
 
 # Used to initialize weights for policy and value output layers
