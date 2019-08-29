@@ -3,6 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/gym" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/lab" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/myMetaRl" vcs="Git" />
   </component>
 </project>

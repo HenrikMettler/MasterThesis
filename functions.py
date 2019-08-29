@@ -6,7 +6,7 @@ from keras.models import Sequential
 from keras.models import Model
 from keras.optimizers import RMSprop
 
-from PIL import Image
+#from PIL import Image
 from create_imageObject import *
 
 
@@ -233,7 +233,6 @@ def create_sample_representation(encoder_Model, data, label, is_training):
 
     # calculate the hidden representation of the two data inputs
     hidden_representations = encoder_Model.predict(picked_data)
-
     # return the labels as a vector
     labels_out = [label_one, label_two]
 
@@ -242,10 +241,9 @@ def create_sample_representation(encoder_Model, data, label, is_training):
 
 def create_dm_network(num_units, input_shape, optimizer, loss, output_activation='sigmoid'):
 
-    time_step_per_trial = 1
     # hidden_size = 128
 
-    lstm_layer = LSTM(num_units,return_sequences=True, input_shape=(time_step_per_trial, input_shape))
+    lstm_layer = LSTM(num_units, return_sequences=True, input_shape=(1, input_shape))
 
     dm_network = Sequential()
     dm_network.add(lstm_layer)
@@ -256,7 +254,6 @@ def create_dm_network(num_units, input_shape, optimizer, loss, output_activation
     return dm_network
 
 def create_networks(num_units, input_shape, optimizer, loss, output_activation='sigmoid', time_step_per_trial = 1):
-
     lstm_layer = LSTM(num_units,return_sequences=True, input_shape=(time_step_per_trial, input_shape))
 
     action_network = Sequential()

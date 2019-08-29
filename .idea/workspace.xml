@@ -2,6 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2280c287-62f3-4d20-b984-8317918dcf07" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/AdvantageActorCritic.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Classes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multistep_decisionnetwork.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
@@ -26,22 +31,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/autoencoder.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1721">
-              <caret line="173" selection-start-line="173" selection-end-line="175" selection-end-column="13" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="169" column="93" selection-start-line="169" selection-start-column="84" selection-end-line="169" selection-end-column="93" />
+            <state relative-caret-position="151">
+              <caret line="129" column="34" selection-start-line="129" selection-start-column="12" selection-end-line="129" selection-end-column="34" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -49,10 +42,35 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="563">
+              <caret line="79" column="9" selection-start-line="79" selection-end-line="80" />
+              <folding>
+                <element signature="e#0#17#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AdvantageActorCritic.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="229">
+              <caret line="28" column="42" lean-forward="true" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/taskPlotting.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1">
+            <state relative-caret-position="450">
+              <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -63,10 +81,36 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/functions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="321" column="19" selection-start-line="321" selection-start-column="19" selection-end-line="321" selection-end-column="19" />
+            <state relative-caret-position="254">
+              <caret line="235" selection-start-line="235" selection-end-line="235" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/multistep_decisionnetwork.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="318">
+              <caret line="98" column="10" selection-start-line="98" selection-start-column="10" selection-end-line="98" selection-end-column="10" />
+              <folding>
+                <element signature="e#0#17#0" expanded="true" />
+                <element signature="e#3193#3749#0" />
+                <element signature="e#4001#4983#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Classes.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="538">
+              <caret line="89" column="65" selection-start-line="89" selection-start-column="65" selection-end-line="89" selection-end-column="65" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -85,6 +129,15 @@
     <findStrings>
       <find>train_mode</find>
       <find>optimizer</find>
+      <find>mix</find>
+      <find>trial</find>
+      <find>dm_network</find>
+      <find>inp_dim</find>
+      <find>lab</find>
+      <find>actor</find>
+      <find>env_dim</find>
+      <find>empty_state</find>
+      <find>maxtime_trial</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -99,16 +152,26 @@
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/floydTemp.py" />
         <option value="$PROJECT_DIR$/autoencoder.py" />
-        <option value="$PROJECT_DIR$/functions.py" />
         <option value="$PROJECT_DIR$/utils/taskPlotting.py" />
+        <option value="$PROJECT_DIR$/taskPlotting.py" />
+        <option value="$PROJECT_DIR$/minimalVectorSystem.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/main2.py" />
+        <option value="$PROJECT_DIR$/lab/functions_for_minimalistic.py" />
+        <option value="$PROJECT_DIR$/lab/minimalisticML.py" />
+        <option value="$PROJECT_DIR$/functions_for_minimalistic.py" />
+        <option value="$PROJECT_DIR$/minimalisticML.py" />
+        <option value="$PROJECT_DIR$/AdvantageActorCritic.py" />
+        <option value="$PROJECT_DIR$/functions.py" />
+        <option value="$PROJECT_DIR$/Classes.py" />
+        <option value="$PROJECT_DIR$/multistep_decisionnetwork.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-168" />
-    <option name="y" value="43" />
-    <option name="width" value="1992" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="635" />
+    <option name="y" value="85" />
+    <option name="width" value="1752" />
     <option name="height" value="1129" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -127,12 +190,11 @@
             <path>
               <item name="MasterThesis" type="b2602c69:ProjectViewProjectNode" />
               <item name="MasterThesis" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="A3C" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MasterThesis" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MasterThesis" type="462c0819:PsiDirectoryNode" />
-              <item name="helper.py" type="8704e2dd:PyFileNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
             </path>
           </expand>
           <select />
@@ -158,7 +220,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -195,7 +259,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+    <configuration name="multistep_decisionnetwork" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="SparseAutoAssociator" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -207,7 +271,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/multistep_decisionnetwork.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -235,27 +299,43 @@
       <option name="project" value="LOCAL" />
       <updated>1562664055445</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="completed task implementation">
+      <created>1563426731800</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1563426731800</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-5" y="23" width="1992" height="1129" extended-state="6" />
+    <frame x="0" y="0" width="2048" height="1152" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21461187" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15589541" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3297975" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.42430088" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3297975" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32902032" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.42513862" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3297975" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3297975" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3297975" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.3297975" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -263,7 +343,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update until action selection" />
-    <option name="LAST_COMMIT_MESSAGE" value="update until action selection" />
+    <MESSAGE value="completed task implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="completed task implementation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -279,29 +360,109 @@
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/functions.py</url>
-          <line>267</line>
-          <option name="timeStamp" value="72" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>174</line>
+          <line>179</line>
           <option name="timeStamp" value="116" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>177</line>
+          <line>182</line>
           <option name="timeStamp" value="120" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>163</line>
-          <option name="timeStamp" value="130" />
+          <line>168</line>
+          <option name="timeStamp" value="136" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/taskPlotting.py</url>
+          <line>39</line>
+          <option name="timeStamp" value="158" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/autoencoder.py</url>
+          <line>1</line>
+          <option name="timeStamp" value="160" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/functions.py</url>
+          <line>304</line>
+          <option name="timeStamp" value="163" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>47</line>
-          <option name="timeStamp" value="133" />
+          <line>81</line>
+          <option name="timeStamp" value="164" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>83</line>
+          <option name="timeStamp" value="165" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>142</line>
+          <option name="timeStamp" value="166" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>141</line>
+          <option name="timeStamp" value="167" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/AdvantageActorCritic.py</url>
+          <line>76</line>
+          <option name="timeStamp" value="179" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main2.py</url>
+          <line>141</line>
+          <option name="timeStamp" value="180" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/minimalisticML.py</url>
+          <line>38</line>
+          <option name="timeStamp" value="193" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/minimalisticML.py</url>
+          <line>37</line>
+          <option name="timeStamp" value="194" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Classes.py</url>
+          <line>80</line>
+          <option name="timeStamp" value="199" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Classes.py</url>
+          <line>83</line>
+          <option name="timeStamp" value="223" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Classes.py</url>
+          <line>97</line>
+          <option name="timeStamp" value="224" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/multistep_decisionnetwork.py</url>
+          <line>113</line>
+          <option name="timeStamp" value="260" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/multistep_decisionnetwork.py</url>
+          <line>160</line>
+          <option name="timeStamp" value="269" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/multistep_decisionnetwork.py</url>
+          <line>133</line>
+          <option name="timeStamp" value="272" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/multistep_decisionnetwork.py</url>
+          <line>157</line>
+          <option name="timeStamp" value="278" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -316,193 +477,135 @@
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
       <expression>
-        <expression-string>train_loss_seed_average = np.mean(train_loss_matrix, 0)
-episode_average_counter = 100
-train_loss_seedAndEpisode_average = np.zeros([num_episode_train/episode_average_counter, num_trial_per_episode])
-for i in range(num_episode_train/episode_average_counter):
-    train_loss_seedAndEpisode_average[i,:] = np.mean(train_loss_seed_average[i*episode_average_counter:(i+1)*episode_average_counter-1,:],0)
-fig = plt.figure()
-num_plots = 8
-for j in range(num_plots):
-    plt.subplot(2,4,j+1)
-    episode_to_plot = j * 100 # this 10 is highly dep on upstream values!
-    tag = str(1 + j * 10000)
-    tag2 = str(1 + j * 10000 + episode_average_counter)
-    plt.plot(train_loss_seedAndEpisode_average[episode_to_plot, :])
-    plt.xlabel('Trial')
-    plt.ylabel('Error')
-    plt.title(['Av of Epi: ', tag, ' - ', tag2])
-    plt.grid(True)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
         <expression-string>doSave = 1
 if doSave == 1:
     currentTime = datetime.datetime.now()
     helperStr = (&quot;Decision making %s&quot; % currentTime)
     filename = (helperStr + &quot;.pickle&quot;)
     with open(filename, &quot;w&quot;) as f:  # The w stands for write
-        pickle.dump([autoencoderModel, encoderModel, dm_network, train_loss_matrix], f)
+        pickle.dump([autoencoderModel, encoderModel, dm_network, train_loss_matrix, num_units], f)
     f.close()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>episode_average_counter = 100
-train_loss_seedAndEpisode_average = np.zeros([num_episode_train/episode_average_counter, num_trial_per_episode])
-for i in range(num_episode_train/episode_average_counter):
-    train_loss_seedAndEpisode_average[i,:] = np.mean(train_loss_seed_average[i*episode_average_counter:(i+1)*episode_average_counter-1,:],0)
-fig = plt.figure()
-num_plots = 8
-for j in range(num_plots):
-    plt.subplot(2,4,j+1)
-    episode_to_plot = j * 100 # this 10 is highly dep on upstream values!
-    tag = str(1 + j * 10000)
-    tag2 = str(1 + j * 10000 + episode_average_counter)
-    plt.plot(train_loss_seedAndEpisode_average[episode_to_plot, :])
-    plt.xlabel('Trial')
+        <expression-string>encoderHiddenLayer = Dense(hiddenLayer_size, activation=hiddenLayer_activationFunction,
+                           activity_regularizer=regularizationParameter, input_shape=inputLayer_size, weights=weights0)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>hidden_representations, labels \
+            = create_sample_representation_minVector(encoderModel, trainSampleMatrix, train_labels)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>hidden_representations, labels \
+            = create_sample_representation_minVector(encoderModel, trainSampleMatrix, train_labels, is_training=1)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>smoothingCoeff = 0.9
+smoothed_train_loss_matrix= np.zeros([5, 120000, 10])
+smoothed_train_loss_matrix[0] = 0.5
+for idx in range(np.size(train_loss_matrix,1)-1):
+    smoothed_train_loss_matrix[:, idx + 1, :] = smoothingCoeff * smoothed_train_loss_matrix[:, idx, :] \
+                                                + (1-smoothingCoeff) * train_loss_matrix[:,idx+1,:]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>fig2 = plt.figure(111)
+for idx in range(np.size(train_loss_matrix,0)):
+    plt.subplot(5,1,idx+1)
+    plt.plot(smoothed_train_loss_matrix[idx,:,1])
+    plt.title(&quot;error rate for the second smoothed trial&quot;)
+    plt.xlabel('Episode')
     plt.ylabel('Error')
-    plt.title(['Av of Epi: ', tag, ' - ', tag2])
-    plt.grid(True)</expression-string>
+    plt.ylim([0,1])
+plt.show()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>episode_average_counter = 100
-train_loss_seedAndEpisode_average = np.zeros([num_episode_train/episode_average_counter, num_trial_per_episode])
-for i in range(num_episode_train/episode_average_counter):
-    train_loss_seedAndEpisode_average[i,:] = np.mean(train_loss_seed_average[i*episode_average_counter:(i+1)*episode_average_counter-1,:],0)
-fig = plt.figure()
-num_plots = 8
-for j in range(num_plots):
-    plt.subplot(2,4,j+1)
-    episode_to_plot = j * 100 # this 10 is highly dep on upstream values!
-    tag = str(1 + j * 800)
-    tag2 = str(1 + j * 800 + episode_average_counter)
-    plt.plot(train_loss_seedAndEpisode_average[episode_to_plot, :])
-    plt.xlabel('Trial')
+        <expression-string>smoothingCoeff = 0.9
+av_train_loss_matrix = np.zeros([5, 120000, 10])
+av_train_loss_matrix[0] = 0.5
+for idx in range(np.size(train_loss_matrix,1)-1):
+    av_train_loss_matrix[:,idx+1,:] = smoothingCoeff * av_train_loss_matrix[:,idx,:] \
+                                      + (1-smoothingCoeff) * train_loss_matrix[:,idx+1,:]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>smoothingCoeff = 0.9
+av_train_loss_matrix = np.zeros([np.size(train_loss_matrix,1)])
+av_train_loss_matrix[0] = 0.5
+for idx in range(np.size(train_loss_matrix,1)-1):
+    av_train_loss_matrix[:,idx+1,:] = smoothingCoeff * av_train_loss_matrix[:,idx,:] \
+                                      + (1-smoothingCoeff) * train_loss_matrix[:,idx+1,:]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>fig2 = plt.figure(111)
+for idx in range(np.size(train_loss_matrix,0)):
+    plt.subplot(5,1,idx+1)
+    plt.plot(train_loss_matrix[idx,:,1])
+    plt.title(&quot;error rate for the second trial&quot;)
+    plt.xlabel('Episode')
     plt.ylabel('Error')
-    plt.title(['Av of Epi: ', tag, ' - ', tag2])
-    plt.grid(True)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>episode_average_counter = 100
-train_loss_seedAndEpisode_average = np.zeros([num_episode_train/episode_average_counter, num_trial_per_episode])
-for i in range(num_episode_train/episode_average_counter):
-    train_loss_seedAndEpisode_average[i,:] = np.mean(train_loss_seed_average[i*episode_average_counter:(i+1)*episode_average_counter-1,:],0)
-fig = plt.figure()
-num_plots = 10
-for i in range(num_plots):
-    plt.subplot(2,5,i+1)
-    episode_to_plot = i * 10 # this 10 is highly dep on upstream values!
-    tag = str(1 + i * 100)
-    tag2 = str(1 + i * 100 + episode_average_counter)
-    plt.plot(train_loss_seedAndEpisode_average[episode_to_plot, :])
-    plt.xlabel('Trial')
-    plt.ylabel('Error')
-    plt.title(['Average of Episodes: ', tag, ' - ', tag2])
-    plt.grid(True)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>episode_average_counter = 800
-train_loss_seedAndEpisode_average = np.zeros([num_episode_train/episode_average_counter, num_trial_per_episode])
-for i in range(num_episode_train/episode_average_counter):
-    train_loss_seedAndEpisode_average[i,:] = np.mean(train_loss_seed_average[i*episode_average_counter:(i+1)*episode_average_counter-1,:],0)
-fig = plt.figure()
-num_plots = 10
-for i in range(num_plots):
-    plt.subplot(2,5,i+1)
-    episode_to_plot = i * 10 # this 10 is highly dep on upstream values!
-    tag = str(1 + i * 100)
-    tag2 = str(1 + i * 100 + episode_average_counter)
-    plt.plot(train_loss_seedAndEpisode_average[episode_to_plot, :])
-    plt.xlabel('Trial')
-    plt.ylabel('Error')
-    plt.title(['Average of Episodes: ', tag, ' - ', tag2])
-    plt.grid(True)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>fig = plt.figure()
-num_plots = 10
-for i in range(num_plots):
-    plt.subplot(2,5,i+1)
-    episode_to_plot = i * 10 # this 10 is highly dep on upstream values!
-    tag = str(1 + i * 100)
-    tag2 = str(1 + i * 100 + episode_average_counter)
-    plt.plot(train_loss_seedAndEpisode_average[episode_to_plot, :])
-    plt.xlabel('Trial')
-    plt.ylabel('Error')
-    plt.title(['Average of Episodes: ', tag, ' - ', tag2])
-    plt.grid(True)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>train_loss_seed_average = np.mean(train_loss_matrix, 0)
-episode_average_counter = 200
-train_loss_seedAndEpisode_average = np.zeros([num_episode_train/episode_average_counter, num_trial_per_episode])
-for i in range(num_episode_train/episode_average_counter):
-    train_loss_seedAndEpisode_average[i,:] = np.mean(train_loss_seed_average[i*episode_average_counter:(i+1)*episode_average_counter-1,:],0)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>train_loss_seed_average = np.mean(train_loss_matrix, 0)
-episode_average_counter = 20</expression-string>
+    plt.ylim([0,1])
+plt.show()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
     </expressions>
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>train_loss_seed_average = train_loss_matrix[0,:,:]</expression-string>
+        <expression-string>a =0</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>num_plots</expression-string>
+        <expression-string>a = 0</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>average_train_loss = np.mean(train_loss_matrix, 0)</expression-string>
+        <expression-string>network_input = np.concatenate((state, reward, one_hot_action),1)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>train_loss_matrix[idx_seed, idx_episode, idx_training_sample] = loss[0]</expression-string>
+        <expression-string>network_input = np.concatenate((state, reward, one_hot_action))</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>train_loss_matrix[idx_seed, idx_episode, idx_training_sample] = loss</expression-string>
+        <expression-string>one_hot_action[0, a] = 1</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>loss = loss_dict.get('loss', '')</expression-string>
+        <expression-string>a = decision_network.select_action(network_input)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>a = loss.get('loss', '')</expression-string>
+        <expression-string>state = state.reshape([1,np.shape(state)[0] * np.shape(state)[1] * np.shape(state)[2]])</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>a = loss{0}</expression-string>
+        <expression-string>state = hidden_representations[0,:,:,:]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>a = loss[0]</expression-string>
+        <expression-string>fixation_time = expected_fixation_time</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -582,16 +685,7 @@ episode_average_counter = 20</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/twoStepTaskMain.py" />
     <entry file="file://$PROJECT_DIR$/WorkerTwoStepTask2.py" />
-    <entry file="file://$PROJECT_DIR$/floydTemp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1531">
-          <caret line="367" column="28" selection-start-line="367" selection-start-column="28" selection-end-line="367" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/floydTemp.py" />
     <entry file="file://$PROJECT_DIR$/../two-step-task/biorxiv-final.ipynb" />
     <entry file="file://$PROJECT_DIR$/A3C/a3c.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -620,6 +714,61 @@ episode_average_counter = 20</expression-string>
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/Project/lib/python2.7/site-packages/tensorflow/python/client/session.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="1439" selection-start-line="1439" selection-end-line="1439" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/taskPlotting.py" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/submission-2/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-826" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/submission-2/methods_comparison.ipynb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/minimalVectorSystem.py" />
+    <entry file="file://$PROJECT_DIR$/autoencoder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="548">
+          <caret line="139" column="66" selection-start-line="139" selection-start-column="66" selection-end-line="139" selection-end-column="66" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab/functions_for_minimalistic.py" />
+    <entry file="file://$PROJECT_DIR$/lab/minimalisticML.py" />
+    <entry file="file://$PROJECT_DIR$/minimalisticML.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions_for_minimalistic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../AwJuliani-MetaRl/A3C-Meta-Bandit.ipynb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/helper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -629,58 +778,74 @@ episode_average_counter = 20</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.conda/envs/Project/lib/python2.7/site-packages/tensorflow/python/client/session.py">
+    <entry file="file://$PROJECT_DIR$/taskPlotting.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="1439" selection-start-line="1439" selection-end-line="1439" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/functions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="321" column="19" selection-start-line="321" selection-start-column="19" selection-end-line="321" selection-end-column="19" />
+        <state relative-caret-position="450">
+          <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#17#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/taskPlotting.py">
+    <entry file="file://$PROJECT_DIR$/AdvantageActorCritic.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+        <state relative-caret-position="229">
+          <caret line="28" column="42" lean-forward="true" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
           <folding>
-            <element signature="e#1#18#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/autoencoder.py">
+    <entry file="file://$PROJECT_DIR$/main2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1721">
-          <caret line="173" selection-start-line="173" selection-end-line="175" selection-end-column="13" />
+        <state relative-caret-position="563">
+          <caret line="79" column="9" selection-start-line="79" selection-end-line="80" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#0#17#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="169" column="93" selection-start-line="169" selection-start-column="84" selection-end-line="169" selection-end-column="93" />
+        <state relative-caret-position="151">
+          <caret line="129" column="34" selection-start-line="129" selection-start-column="12" selection-end-line="129" selection-end-column="34" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/taskPlotting.py">
+    <entry file="file://$PROJECT_DIR$/functions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
+        <state relative-caret-position="254">
+          <caret line="235" selection-start-line="235" selection-end-line="235" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="538">
+          <caret line="89" column="65" selection-start-line="89" selection-start-column="65" selection-end-line="89" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/multistep_decisionnetwork.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="98" column="10" selection-start-line="98" selection-start-column="10" selection-end-line="98" selection-end-column="10" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
+            <element signature="e#3193#3749#0" />
+            <element signature="e#4001#4983#0" />
           </folding>
         </state>
       </provider>
