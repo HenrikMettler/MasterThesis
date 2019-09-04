@@ -175,5 +175,4 @@ if saveModel == 1:
         pickle.dump([autoencoderModel, encoderOnlyModel], f)
     f.close()
 
-abc = 1
 

@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2280c287-62f3-4d20-b984-8317918dcf07" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/AdvantageActorCritic.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Classes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/multistep_decisionnetwork.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/A3C/kerasAC_tutorial" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Classes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoencoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoencoder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multistep_decisionnetwork.py" beforeDir="false" afterPath="$PROJECT_DIR$/multistep_decisionnetwork.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,7 +19,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/helper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="664">
+              <caret line="87" column="1" selection-start-line="87" selection-start-column="1" selection-end-line="108" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -33,8 +31,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="129" column="34" selection-start-line="129" selection-start-column="12" selection-end-line="129" selection-end-column="34" />
+            <state relative-caret-position="551">
+              <caret line="103" column="30" selection-start-line="102" selection-start-column="8" selection-end-line="103" selection-end-column="30" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -43,24 +41,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main2.py">
+        <entry file="file://$PROJECT_DIR$/autoencoder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="563">
-              <caret line="79" column="9" selection-start-line="79" selection-end-line="80" />
+            <state relative-caret-position="457">
+              <caret line="174" column="26" selection-start-line="174" selection-start-column="26" selection-end-line="174" selection-end-column="26" />
               <folding>
-                <element signature="e#0#17#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AdvantageActorCritic.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="28" column="42" lean-forward="true" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#0#18#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -79,12 +65,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/functions.py">
+        <entry file="file://$PROJECT_DIR$/Classes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="235" selection-start-line="235" selection-end-line="235" />
+            <state relative-caret-position="338">
+              <caret line="149" selection-start-line="149" selection-end-line="149" />
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
+                <element signature="e#0#18#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -93,24 +79,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/multistep_decisionnetwork.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="98" column="10" selection-start-line="98" selection-start-column="10" selection-end-line="98" selection-end-column="10" />
+            <state relative-caret-position="-733">
+              <caret line="170" column="29" selection-start-line="170" selection-start-column="24" selection-end-line="170" selection-end-column="29" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
-                <element signature="e#3193#3749#0" />
-                <element signature="e#4001#4983#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Classes.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="538">
-              <caret line="89" column="65" selection-start-line="89" selection-start-column="65" selection-end-line="89" selection-end-column="65" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -138,6 +110,7 @@
       <find>env_dim</find>
       <find>empty_state</find>
       <find>maxtime_trial</find>
+      <find>select_a</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -151,7 +124,6 @@
         <option value="$PROJECT_DIR$/.idea/misc.xml" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/floydTemp.py" />
-        <option value="$PROJECT_DIR$/autoencoder.py" />
         <option value="$PROJECT_DIR$/utils/taskPlotting.py" />
         <option value="$PROJECT_DIR$/taskPlotting.py" />
         <option value="$PROJECT_DIR$/minimalVectorSystem.py" />
@@ -163,15 +135,16 @@
         <option value="$PROJECT_DIR$/minimalisticML.py" />
         <option value="$PROJECT_DIR$/AdvantageActorCritic.py" />
         <option value="$PROJECT_DIR$/functions.py" />
+        <option value="$PROJECT_DIR$/A3C/kerasAC_tutorial" />
+        <option value="$PROJECT_DIR$/autoencoder.py" />
         <option value="$PROJECT_DIR$/Classes.py" />
         <option value="$PROJECT_DIR$/multistep_decisionnetwork.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="635" />
-    <option name="y" value="85" />
-    <option name="width" value="1752" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="23" />
+    <option name="width" value="921" />
     <option name="height" value="1129" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -180,26 +153,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="MasterThesis" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MasterThesis" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MasterThesis" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MasterThesis" type="462c0819:PsiDirectoryNode" />
-              <item name="A3C" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MasterThesis" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -211,6 +164,21 @@
               <item name="MasterThesis" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="~/Documents/Code/MasterThesis" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name=".idea" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="MasterThesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MasterThesis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MasterThesis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
             </path>
           </expand>
           <select />
@@ -306,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1563426731800</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="task implementation in multistep setting (training missing)">
+      <created>1567056873615</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1567056873615</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -319,16 +294,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="2048" height="1152" extended-state="0" />
+    <frame x="0" y="23" width="1991" height="1129" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15589541" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24111675" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3297975" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32902032" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.42513862" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32902032" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3529412" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.46287367" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3297975" />
@@ -344,7 +319,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update until action selection" />
     <MESSAGE value="completed task implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="completed task implementation" />
+    <MESSAGE value="task implementation in multistep setting (training missing)" />
+    <option name="LAST_COMMIT_MESSAGE" value="task implementation in multistep setting (training missing)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -431,38 +407,73 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Classes.py</url>
-          <line>80</line>
-          <option name="timeStamp" value="199" />
+          <line>124</line>
+          <option name="timeStamp" value="300" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Classes.py</url>
-          <line>83</line>
-          <option name="timeStamp" value="223" />
+          <line>126</line>
+          <option name="timeStamp" value="305" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Classes.py</url>
-          <line>97</line>
-          <option name="timeStamp" value="224" />
+          <line>114</line>
+          <option name="timeStamp" value="322" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Classes.py</url>
+          <line>110</line>
+          <option name="timeStamp" value="335" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Classes.py</url>
+          <line>111</line>
+          <option name="timeStamp" value="337" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/multistep_decisionnetwork.py</url>
-          <line>113</line>
-          <option name="timeStamp" value="260" />
+          <line>243</line>
+          <option name="timeStamp" value="372" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/multistep_decisionnetwork.py</url>
-          <line>160</line>
-          <option name="timeStamp" value="269" />
+          <line>103</line>
+          <option name="timeStamp" value="374" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/multistep_decisionnetwork.py</url>
-          <line>133</line>
-          <option name="timeStamp" value="272" />
+          <line>148</line>
+          <option name="timeStamp" value="379" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/multistep_decisionnetwork.py</url>
-          <line>157</line>
-          <option name="timeStamp" value="278" />
+          <line>202</line>
+          <option name="timeStamp" value="381" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/multistep_decisionnetwork.py</url>
+          <line>116</line>
+          <option name="timeStamp" value="382" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/multistep_decisionnetwork.py</url>
+          <line>151</line>
+          <option name="timeStamp" value="387" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/multistep_decisionnetwork.py</url>
+          <line>122</line>
+          <option name="timeStamp" value="388" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/multistep_decisionnetwork.py</url>
+          <line>129</line>
+          <option name="timeStamp" value="389" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/multistep_decisionnetwork.py</url>
+          <line>158</line>
+          <option name="timeStamp" value="390" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -477,135 +488,127 @@
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
       <expression>
-        <expression-string>doSave = 1
-if doSave == 1:
-    currentTime = datetime.datetime.now()
-    helperStr = (&quot;Decision making %s&quot; % currentTime)
-    filename = (helperStr + &quot;.pickle&quot;)
-    with open(filename, &quot;w&quot;) as f:  # The w stands for write
-        pickle.dump([autoencoderModel, encoderModel, dm_network, train_loss_matrix, num_units], f)
+        <expression-string>if save_variables == 1:
+    with open(filename_dn, &quot;w&quot;) as f:
+        pickle.dump([decision_network.policy_model, decision_network.value_model, all_actions, all_rewards, all_states, all_trialIdx], f)
     f.close()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>encoderHiddenLayer = Dense(hiddenLayer_size, activation=hiddenLayer_activationFunction,
-                           activity_regularizer=regularizationParameter, input_shape=inputLayer_size, weights=weights0)</expression-string>
+        <expression-string>filename_dn = (helperStr + &quot;.pickle&quot;)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>hidden_representations, labels \
-            = create_sample_representation_minVector(encoderModel, trainSampleMatrix, train_labels)</expression-string>
+        <expression-string>if save_variables == 1:
+    with open(filename_dn, &quot;w&quot;) as f:
+        json.dump([decision_network.policy_model, decision_network.value_model, all_actions, all_rewards, all_states, all_trialIdx], f)
+    f.close()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>hidden_representations, labels \
-            = create_sample_representation_minVector(encoderModel, trainSampleMatrix, train_labels, is_training=1)</expression-string>
+        <expression-string>if save_variables == 1:
+    with open(filename_dn, &quot;w&quot;) as f:
+        json.dump([decision_network, all_actions, all_rewards, all_states, all_trialIdx], f)
+    f.close()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>smoothingCoeff = 0.9
-smoothed_train_loss_matrix= np.zeros([5, 120000, 10])
-smoothed_train_loss_matrix[0] = 0.5
-for idx in range(np.size(train_loss_matrix,1)-1):
-    smoothed_train_loss_matrix[:, idx + 1, :] = smoothingCoeff * smoothed_train_loss_matrix[:, idx, :] \
-                                                + (1-smoothingCoeff) * train_loss_matrix[:,idx+1,:]</expression-string>
+        <expression-string>currentTime = datetime.datetime.now()
+helperStr = (&quot;decision_network%s&quot; % currentTime)
+filename_dn = (helperStr + &quot;.pickle&quot;)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>fig2 = plt.figure(111)
-for idx in range(np.size(train_loss_matrix,0)):
-    plt.subplot(5,1,idx+1)
-    plt.plot(smoothed_train_loss_matrix[idx,:,1])
-    plt.title(&quot;error rate for the second smoothed trial&quot;)
-    plt.xlabel('Episode')
-    plt.ylabel('Error')
-    plt.ylim([0,1])
-plt.show()</expression-string>
+        <expression-string># save variables
+if save_variables == 1:
+    with open(filename_dn, &quot;w&quot;) as f:
+        pickle.dump([all_actions, all_rewards, all_states, all_trialIdx], f)
+    f.close()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>smoothingCoeff = 0.9
-av_train_loss_matrix = np.zeros([5, 120000, 10])
-av_train_loss_matrix[0] = 0.5
-for idx in range(np.size(train_loss_matrix,1)-1):
-    av_train_loss_matrix[:,idx+1,:] = smoothingCoeff * av_train_loss_matrix[:,idx,:] \
-                                      + (1-smoothingCoeff) * train_loss_matrix[:,idx+1,:]</expression-string>
+        <expression-string># save variables
+if save_variables == 1:
+    with open(filename_dn, &quot;w&quot;) as f:
+        pickle.dump([decision_network, all_actions, all_rewards, all_states, all_trialIdx], f)
+    f.close()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>smoothingCoeff = 0.9
-av_train_loss_matrix = np.zeros([np.size(train_loss_matrix,1)])
-av_train_loss_matrix[0] = 0.5
-for idx in range(np.size(train_loss_matrix,1)-1):
-    av_train_loss_matrix[:,idx+1,:] = smoothingCoeff * av_train_loss_matrix[:,idx,:] \
-                                      + (1-smoothingCoeff) * train_loss_matrix[:,idx+1,:]</expression-string>
+        <expression-string>save_variables = 1
+# generate filename and location for storage
+currentTime = datetime.datetime.now()
+helperStr = (&quot;autoencoder_mnist%s&quot; % currentTime)
+filename_dn = (helperStr + &quot;.pickle&quot;)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>fig2 = plt.figure(111)
-for idx in range(np.size(train_loss_matrix,0)):
-    plt.subplot(5,1,idx+1)
-    plt.plot(train_loss_matrix[idx,:,1])
-    plt.title(&quot;error rate for the second trial&quot;)
-    plt.xlabel('Episode')
-    plt.ylabel('Error')
-    plt.ylim([0,1])
-plt.show()</expression-string>
+        <expression-string># save variables
+if save_variables == 1:
+    with open(filename_autoencoder, &quot;w&quot;) as f:  # The w stands for write
+        pickle.dump([decision_network, all_actions, all_rewards, all_states, all_trialIdx], f)
+    f.close()
+abc = 1</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
     </expressions>
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>a =0</expression-string>
+        <expression-string>a == time &lt; maxtime_trial and not trial_is_finished:</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>a = 0</expression-string>
+        <expression-string>a = time &lt; maxtime_trial and not trial_is_finished:</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>network_input = np.concatenate((state, reward, one_hot_action),1)</expression-string>
+        <expression-string>while time &lt; maxtime_trial and not trial_is_finished:</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>network_input = np.concatenate((state, reward, one_hot_action))</expression-string>
+        <expression-string>self.policy_model.fit(episode_states,y=advantages) # &quot;abuse&quot; the advantages as labels, for the custom loss function</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>one_hot_action[0, a] = 1</expression-string>
+        <expression-string>self.value_model.compile(optimizer=self.optimizer, loss=value_loss_function(y_true=self))</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>a = decision_network.select_action(network_input)</expression-string>
+        <expression-string>discounted_rewards = self.discount_rewards(self.prev_rewards, self.gamma)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>state = state.reshape([1,np.shape(state)[0] * np.shape(state)[1] * np.shape(state)[2]])</expression-string>
+        <expression-string>j = np.sum(-log_times_advantages)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>state = hidden_representations[0,:,:,:]</expression-string>
+        <expression-string>j = np.sum(log_times_advantages)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>fixation_time = expected_fixation_time</expression-string>
+        <expression-string>log_times_advantages = advantages*episode_logprobs</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>log_prob = np.log(action_probs.squeeze(0)[selected_action])</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -734,16 +737,6 @@ plt.show()</expression-string>
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/minimalVectorSystem.py" />
-    <entry file="file://$PROJECT_DIR$/autoencoder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="139" column="66" selection-start-line="139" selection-start-column="66" selection-end-line="139" selection-end-column="66" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lab/functions_for_minimalistic.py" />
     <entry file="file://$PROJECT_DIR$/lab/minimalisticML.py" />
     <entry file="file://$PROJECT_DIR$/minimalisticML.py">
@@ -769,11 +762,32 @@ plt.show()</expression-string>
     <entry file="file://$PROJECT_DIR$/../AwJuliani-MetaRl/A3C-Meta-Bandit.ipynb">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/helper.py">
+    <entry file="file://$PROJECT_DIR$/AdvantageActorCritic.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="1050">
+          <caret line="83" column="25" selection-start-line="83" selection-start-column="25" selection-end-line="83" selection-end-column="25" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="148" column="48" selection-start-line="148" selection-start-column="40" selection-end-line="148" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/A3C/kerasAC_tutorial">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="32" column="47" lean-forward="true" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="47" />
+          <folding>
+            <element signature="e#55#85#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -788,50 +802,50 @@ plt.show()</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AdvantageActorCritic.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="28" column="42" lean-forward="true" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
-          <caret line="79" column="9" selection-start-line="79" selection-end-line="80" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="129" column="34" selection-start-line="129" selection-start-column="12" selection-end-line="129" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/functions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="235" selection-start-line="235" selection-end-line="235" />
+        <state relative-caret-position="160">
+          <caret line="241" column="61" selection-start-line="241" selection-start-column="57" selection-end-line="241" selection-end-column="61" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/helper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="664">
+          <caret line="87" column="1" selection-start-line="87" selection-start-column="1" selection-end-line="108" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="103" column="30" selection-start-line="102" selection-start-column="8" selection-end-line="103" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/autoencoder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="174" column="26" selection-start-line="174" selection-start-column="26" selection-end-line="174" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Classes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="89" column="65" selection-start-line="89" selection-start-column="65" selection-end-line="89" selection-end-column="65" />
+        <state relative-caret-position="338">
+          <caret line="149" selection-start-line="149" selection-end-line="149" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -840,12 +854,10 @@ plt.show()</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/multistep_decisionnetwork.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="98" column="10" selection-start-line="98" selection-start-column="10" selection-end-line="98" selection-end-column="10" />
+        <state relative-caret-position="-733">
+          <caret line="170" column="29" selection-start-line="170" selection-start-column="24" selection-end-line="170" selection-end-column="29" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#3193#3749#0" />
-            <element signature="e#4001#4983#0" />
           </folding>
         </state>
       </provider>
