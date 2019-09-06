@@ -73,7 +73,7 @@ class Network:
 
 
             loss = K.sum(-log_likelihood*advantages)
-            return loss  # gradient ascent not descent
+            return -loss  # gradient ascent not descent
 
         self.policy_model.compile(optimizer=self.optimizer, loss=policy_loss_function)
 
@@ -98,6 +98,7 @@ class Network:
 
         # optimize the network
         self.value_model.fit(episode_states, y=discounted_rewards)#, callbacks=[tensorboard_callback]) # the discounted rewards are the target values for the Critic
+
         # Todo: check about other parameters in this fit method!
         self.policy_model.fit(episode_states, y=advantages)#, callbacks=[tensorboard_callback]) # "abuse" the advantages as labels, for the custom loss function
     # def policy_loss_function(self, advantages, logprobs):

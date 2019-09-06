@@ -51,9 +51,9 @@ after_fixation_state = np.ones(np.shape(empty_state))
 # Hyperparameters for training/testing
 gamma = .9
 a_size = 3 # stay, left, right
-num_episode_train = 10 # Wang: 120000
+num_episode_train = 100000 # Wang: 120000
 num_episode_test = 300
-num_trial_per_episode = 3 # Should be 10
+num_trial_per_episode = 10 # Should be 10
 learning_rate = 7e-4 # Todo: Two learning rates for the critic and the actor
 # optimizer = 'rmsprop' # currently rmsprop is hardcoded
 
@@ -166,15 +166,6 @@ for idx_episode in range(num_episode_train):
                 else:
                     reward = np.zeros((1, 1))
                     image_selection_isdone = True
-                    rep_selected = np.int(a - 1)  # there is a shift of 1 because action 0 means stay
-                    if a == 1: # "Left" action, pick first representation
-                        state = hidden_representations[0,:,:,:]
-
-                    elif a == 2: # "Right" action, pick second representation
-                        state = hidden_representations[1,:,:,:]
-                        #state = state.reshape([1, np.shape(state)[0] * np.shape(state)[1] * np.shape(state)[2]])
-
-                    state = state.reshape([1, np.shape(state)[0] * np.shape(state)[1] * np.shape(state)[2]])
 
                 # Append state, one_hot_action and reward
                 episode_states.append(state)
@@ -187,18 +178,31 @@ for idx_episode in range(num_episode_train):
                 if duration == maxtime_trial:
                     break
 
-            if duration == maxtime_trial:
-                break
 
-            # Confirming Image Selection (by staying at image)
+            # Update state to one of the hidden representations
+            if a == 1: # "Left" action, pick first representation
+                state = hidden_representations[0, :, :, :]
+                state = state.reshape([1, np.shape(state)[0] * np.shape(state)[1] * np.shape(state)[2]])
+
+            elif a == 2: # "Right" action, pick second representation
+                state = hidden_representations[1, :, :, :]
+                state = state.reshape([1, np.shape(state)[0] * np.shape(state)[1] * np.shape(state)[2]])
+
+            rep_selected = np.int(a - 1)  # shift by one - action 0 is staying, 1 is rep 0, 2 is rep 1
+
+
             # select action
-            a, log_prob = decision_network.select_action(state) # Note for Debugging: Set a =0
-            # Obtain Rewards (wright or wrong decision) if Image Selection is confirmed
-            if a == 0:
-                if good_label == labels[rep_selected]:
-                    reward += 1
-                else:
-                    reward = 0 #no punishment for wrong selection
+            a, log_prob = decision_network.select_action(state) # This action is meaningless for obtaining rewards if confirming selection is not on
+            # Obtain Rewards
+            #if a == 0: # Confirming Image Selection (by staying at image) (Currently switched off)
+
+            if good_label == labels[rep_selected]:
+                reward = 1
+            else:
+                reward = 0 # no punishment for wrong selection
+            #else:
+                #reward = 0
+                #
 
             episode_states.append(state)
             episode_actions.append(one_hot_action)
@@ -207,7 +211,10 @@ for idx_episode in range(num_episode_train):
             trialidx_observer.append(idx_trial)
             trial_is_finished = True
 
-        # switch representation - action assignment with 50% Todo
+        # switch representation - action assignment with 50%
+        hidden_rep1 = hidden_representations[0, :, :, :]
+        hidden_rep2 = hidden_representations[1, :, :, :]
+        hidden_representations, labels = mix_up(hidden_rep1, hidden_rep2, labels)
 
     # convert episode_state from list into 3-dim array
     episode_states_asarray = np.array(episode_states)
@@ -217,7 +224,6 @@ for idx_episode in range(num_episode_train):
 
     # Train Network
     decision_network.train(episode_states_asarray, episode_actions_asarray, episode_rewards_asarray, episode_logprobs)
-
 
     # append all the states, actions, rewards and trial indices to the over all data
     all_actions.append(episode_actions_asarray)
@@ -243,3 +249,18 @@ if save_variables == 1:
 # plotting
 abc = 1
 
+some_rewards = all_rewards[num_episode_train-100:-1]
+
+with open("decision_network_rewardsandtrialidx0609.pickle", "w") as f:
+    pickle.dump([all_rewards, all_trialIdx], f)
+f.close()
+
+
+
+with open('rewards0609.txt', 'w') as filehandle:
+    for listitem in all_rewards:
+        filehandle.write('%s\n' % listitem)
+
+with open('trialidx0609.txt', 'w') as filehandle:
+    for listitem in all_trialIdx:
+        filehandle.write('%s\n' % listitem)
