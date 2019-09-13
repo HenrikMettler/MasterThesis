@@ -232,7 +232,17 @@ def create_sample_representation(encoder_Model, data, label, is_training):
     picked_data [1,:,:,:] = data_two
 
     # calculate the hidden representation of the two data inputs
-    hidden_representations = encoder_Model.predict(picked_data)
+    hidden_representations_beforereshape = encoder_Model.predict(picked_data)
+    # reshape the hidden representations
+    hidden_rep_1 = hidden_representations_beforereshape[0, :, :, :]
+    hidden_rep_1 = hidden_rep_1.reshape([1, np.shape(hidden_rep_1)[0] * np.shape(hidden_rep_1)[1] * np.shape(hidden_rep_1)[2]])
+    hidden_rep_2 = hidden_representations_beforereshape[1, :, :, :]
+    hidden_rep_2 = hidden_rep_2.reshape([1, np.shape(hidden_rep_2)[0] * np.shape(hidden_rep_2)[1] * np.shape(hidden_rep_2)[2]])
+    # put into one array
+    hidden_representations = np.zeros((2, np.shape(hidden_rep_1,)[1]))
+    hidden_representations[0, :] = hidden_rep_1
+    hidden_representations[1, :] = hidden_rep_2
+
     # return the labels as a vector
     labels_out = [label_one, label_two]
 
@@ -252,6 +262,7 @@ def create_dm_network(num_units, input_shape, optimizer, loss, output_activation
     dm_network.summary()
 
     return dm_network
+
 
 def create_networks(num_units, input_shape, optimizer, loss, output_activation='sigmoid', time_step_per_trial = 1):
     lstm_layer = LSTM(num_units,return_sequences=True, input_shape=(time_step_per_trial, input_shape))
@@ -277,14 +288,14 @@ def mix_up(hidden_rep1, hidden_rep2, labels):
     #copy_labels = labels
     p = np.random.random_sample()
 
-    hidden_representations = np.zeros((2, np.shape(hidden_rep1)[0], np.shape(hidden_rep1)[1], np.shape(hidden_rep1)[2]))
+    hidden_representations = np.zeros((2, np.size(hidden_rep1)))
     # change the order if p > 0.5
     if p < 0.5:
-        hidden_representations[0, :, :, :] = hidden_rep1
-        hidden_representations[1, :, :, :] = hidden_rep2
+        hidden_representations[0, :] = hidden_rep1
+        hidden_representations[1, :] = hidden_rep2
     else:
-        hidden_representations[0,:,:,:] = hidden_rep2
-        hidden_representations[1,:,:,:] = hidden_rep1
+        hidden_representations[0, :] = hidden_rep2
+        hidden_representations[1, :] = hidden_rep1
         labels[0] = label2
         labels[1] = label1
 
@@ -358,3 +369,13 @@ class Create_Args():
         self.env = env
         self.n_timeSteps = n_timeSteps
 
+def pick_digit_sample():
+    hidden_reps = np.floor(10*np.random.rand(2)) # 2 random integers between 0,9
+    while hidden_reps[0] == hidden_reps[1]: # replace the second if they are equal
+        hidden_reps[1] = np.floor(10*np.random.random_sample())
+
+    labels = np.zeros([2])
+    labels[0] = np.int(hidden_reps[0])
+    labels[1] = np.int(hidden_reps[1])
+
+    return hidden_reps, labels
