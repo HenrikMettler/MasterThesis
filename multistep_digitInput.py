@@ -20,6 +20,7 @@ from Classes import *
 numSets = 10
 
 # Hyperparameters for training/testing
+num_steps_unrolled = 10
 gamma = .9
 a_size = 3 # stay, left, right
 num_episode_train = 120000 # Wang: 120000

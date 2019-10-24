@@ -60,15 +60,15 @@ inputLayer_size = mean_imageSize
 num_conv_layer = 3 # for now the architecture below is fixed for num_conv_layer = 3
 num_pool_layer = num_conv_layer
 filter_sizes = [4, 8, 16]
-kernel_sizes = [12, 4, 4]
-maxpool_sizes = [2, 2, 2]
+kernel_sizes = [12, 8, 4]
+maxpool_sizes = [8, 4, 2]
 hiddenLayer_activationFunction = 'relu' # same across all layers
 outputLayer_activationFunction = 'sigmoid' # default from keras documentation
 outputLayer_size = inputLayer_size # redundant info
 optimizer ='adadelta' # default from keras documentation
 loss ='binary_crossentropy' # default from keras documentation
 batch_size = 4
-num_epochs = 20
+num_epochs = 25
 padding = 'same' # default from keras documentation
 
 # Regularization Parameter
@@ -112,7 +112,7 @@ autoencoderModel.compile(optimizer=optimizer, loss=loss)
 print('Summary of the Autoencoder model with layer shapes')
 autoencoderModel.summary()
 
-dimOutput = 304# Todo: change to get dim info from output layer as int
+dimOutput = 320# Todo: change to get dim info from output layer as int
 # adapt train and test data for output layer to output layer size (zero padding at the edges ToDo: alter hardcoded struct
 x_train_output = zeroPad2OutputSize(x_train, dimOutput)
 x_test_output = zeroPad2OutputSize(x_test, dimOutput)

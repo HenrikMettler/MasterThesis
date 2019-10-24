@@ -1,4 +1,3 @@
-import matplotlib
 import pickle
 import datetime
 import time
@@ -6,17 +5,17 @@ import time
 from keras.models import Model
 from keras import regularizers
 from keras.datasets import mnist
-from keras import backend as K
-from keras.callbacks import TensorBoard
+from matplotlib import pyplot as plt
+from multiprocessing import Pool
+
 from functions import *
 from AdvantageActorCritic import *
 
-matplotlib.use("TkAgg") # matplotlib import adapted for use on MacOS
+# Todo: 1) shape of input vector
+#       2) reset of state after every episode
 
-from matplotlib import pyplot as plt
 
-# filename = "autoencoder_mnist2019-07-05 12:00:03.686985.pickle"
-filename= "autoencoder_mnist2019-07-11 12:34:09.098789.pickle"
+filename = "data/autoencoder_mnist2019-07-11 12:34:09.098789.pickle"
 
 infile = open(filename,'rb')
 autoencoderModel, encoderModel = pickle.load(infile)
@@ -41,21 +40,17 @@ x_test = np.reshape(x_test, (len(x_test), 28, 28, 1))
 input_shape = 2*encoderModel.layers[-1].output_shape[1]*encoderModel.layers[-1].output_shape[2]*encoderModel.layers[-1].output_shape[3]
 
 # Hyperparameters for training/testing
-gamma = .9
-a_size = 2
-env_dim = 1 # check if true
-num_seeds = 5
-num_episode_train = 120000
-num_episode_test = 300
+num_seeds = 1
+num_episode_train = 1200 # Wang: 120'000
+#num_episode_test = 300
 num_trial_per_episode = 10
 learning_rate = 7e-4
 optimizer = 'rmsprop'
 loss = 'mean_squared_error'
 
 # LSTMCell parameters
-num_units = 128 # Wang: 256
-activation = 'tanh'
-recurrent_activation = 'hard_sigmoid'
+num_units = 16 # Wang: 256
+num_units_array = [16, 48, 256]
 use_bias = True
 # further LSTMCell parameters (so far set to default values -> move them up to parameter section when changing!
 # kernel_initializer = 'glorot_uniform'
@@ -77,9 +72,8 @@ use_bias = True
 
 # create networks
 #action_network, value_network = create_networks(num_units, input_shape, optimizer, loss)
-#dm_network = create_dm_network(num_units, input_shape, optimizer, loss)
+dm_network = create_dm_network(num_units, input_shape, optimizer, loss)
 
-algo = AdvantageActorCritic(a_size, env_dim, input_shape, num_units, gamma, learning_rate)
 
 num_samples_per_training = 1
 choice = np.zeros(num_samples_per_training)
@@ -88,12 +82,13 @@ target = np.zeros(num_samples_per_training)
 all_inputs_for_training = np.zeros((num_samples_per_training, 1,input_shape))
 
 num_train_loss = num_trial_per_episode/num_samples_per_training
-train_loss_matrix = np.zeros((num_seeds, num_episode_train, num_train_loss))
+train_loss_matrix = np.zeros((len(num_units_array), num_episode_train, num_train_loss))
 
 time_seed = time.time()
 time_episode = time.time()
 
-for idx_seed in range(num_seeds):
+idx_seed = 0
+for num_units in num_units_array:
     print("This is the beginning of seed: ")
     print(idx_seed + 1)
 
@@ -122,9 +117,9 @@ for idx_seed in range(num_seeds):
             idx_training_sample = idx_trial%num_samples_per_training
 
 
-            # mix up the representations into random order # Todo: This is a bit ugly, but doing it locally in the function doesn't work
-            hidden_rep1 = hidden_representations[0,:,:,:]
-            hidden_rep2 = hidden_representations[1,:,:,:]
+            # mix up the representations into random order #
+            hidden_rep1 = hidden_representations[0]
+            hidden_rep2 = hidden_representations[1]
             hidden_representations, labels = mix_up(hidden_rep1, hidden_rep2, labels)
 
             # define the target value of the trial
@@ -136,8 +131,7 @@ for idx_seed in range(num_seeds):
                 raise('Current architecture only supports 2 choices')
 
 
-            #choice[idx_training_sample], prediction[idx_training_sample], dm_input = trial_run(dm_network, hidden_representations, labels)
-            algo.train()
+            choice[idx_training_sample], prediction[idx_training_sample], dm_input = trial_run(dm_network, hidden_representations, labels)
             all_inputs_for_training[idx_training_sample, :] = dm_input
             current_choice = choice[idx_training_sample]
             reward = check_reward(current_choice, labels, good_label)
@@ -160,7 +154,7 @@ for idx_seed in range(num_seeds):
     print("time for this seed: ")
     print(time_seed_over-time_seed)
     time_seed = time.time()
-
+    idx_seed+=1
 
 
 # Variable Saving
@@ -178,21 +172,22 @@ if doSave == 1:
 train_loss_seed_average = np.mean(train_loss_matrix, 0)
 episode_average_counter = 100
 
-train_loss_seedAndEpisode_average = np.zeros([num_episode_train/episode_average_counter, num_trial_per_episode])
-for i in range(num_episode_train/episode_average_counter):
-    train_loss_seedAndEpisode_average[i,:] = np.mean(train_loss_seed_average[i*episode_average_counter:(i+1)*episode_average_counter-1,:],0)
-
-
-fig = plt.figure()
-num_plots = 8
-for j in range(num_plots):
-    plt.subplot(2,4,j+1)
-    episode_to_plot = j * 100 # this 10 is highly dep on upstream values!
-    tag = str(1 + j * 10000)
-    tag2 = str(1 + j * 10000 + episode_average_counter)
-    plt.plot(train_loss_seedAndEpisode_average[episode_to_plot, :])
-    plt.xlabel('Trial')
-    plt.ylabel('Error')
-    plt.title(['Av of Epi: ', tag, ' - ', tag2])
-    plt.grid(True)
-
+# train_loss_seedAndEpisode_average = np.zeros([num_episode_train/episode_average_counter, num_trial_per_episode])
+# for i in range(num_episode_train/episode_average_counter):
+#     train_loss_seedAndEpisode_average[i,:] = np.mean(train_loss_seed_average[i*episode_average_counter:(i+1)*episode_average_counter-1,:],0)
+#
+#
+# fig = plt.figure()
+# num_plots = 8
+# for j in range(num_plots):
+#     plt.subplot(2,4,j+1)
+#     episode_to_plot = j * 100 # this 10 is highly dep on upstream values!
+#     tag = str(1 + j * 10000)
+#     tag2 = str(1 + j * 10000 + episode_average_counter)
+#     plt.plot(train_loss_seedAndEpisode_average[episode_to_plot, :])
+#     plt.xlabel('Trial')
+#     plt.ylabel('Error')
+#     plt.title(['Av of Epi: ', tag, ' - ', tag2])
+#     plt.grid(True)
+#
+# 

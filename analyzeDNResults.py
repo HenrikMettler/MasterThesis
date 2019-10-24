@@ -8,10 +8,8 @@ import seaborn as sns
 from matplotlib import pyplot as plt
 
 
-import matplotlib
 import pickle
 import numpy as np
-matplotlib.use("TkAgg") # matplotlib import adapted for use on MacOS
 
 from matplotlib import pyplot as plt
 
